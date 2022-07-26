@@ -6,12 +6,12 @@ import Naver from "../../assets/svg/Naver.svg";
 import * as S from "./styled";
 
 const LoginModal = () => {
-  const id = process.env.REACT_APP_TWITCH_ID;
-  const secret = process.env.REACT_APP_TWITCH_SECRET;
+  const twitch_id = process.env.REACT_APP_TWITCH_ID;
+  const twitch_secret = process.env.REACT_APP_TWITCH_SECRET;
 
   const [twitchState, setTwitchState] = useState({
-    client_id: id,
-    client_secret: secret,
+    client_id: twitch_id,
+    client_secret: twitch_secret,
     grant_type: "client_credentials",
   });
 
