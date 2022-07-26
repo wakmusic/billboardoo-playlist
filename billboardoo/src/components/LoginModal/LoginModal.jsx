@@ -9,9 +9,6 @@ const LoginModal = () => {
   const id = process.env.REACT_APP_TWITCH_ID;
   const secret = process.env.REACT_APP_TWITCH_SECRET;
 
-  console.log(id);
-  console.log(secret);
-
   const [twitchState, setTwitchState] = useState({
     client_id: id,
     client_secret: secret,
