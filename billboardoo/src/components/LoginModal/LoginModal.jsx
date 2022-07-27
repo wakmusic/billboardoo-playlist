@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Black_Logo from "../../assets/svg/Black_Logo.svg";
 import Twitch from "../../assets/svg/Twitch.svg";
@@ -6,16 +6,23 @@ import Naver from "../../assets/svg/Naver.svg";
 import * as S from "./styled";
 
 const LoginModal = () => {
-  const twitch_id = process.env.REACT_APP_TWITCH_ID;
-  const twitch_secret = process.env.REACT_APP_TWITCH_SECRET;
-
   const [twitchState, setTwitchState] = useState({
-    client_id: twitch_id,
-    client_secret: twitch_secret,
+    client_id: process.env.REACT_APP_TWITCH_ID,
+    client_secret: process.env.REACT_APP_TWITCH_SECRET,
     grant_type: "client_credentials",
   });
 
-  const onPostTwitchLogin = () => {
+  const [naverState, setNaverState] = useState({
+    clientId: process.env.REACT_APP_NAVER_ID,
+    callbackUrl: "http://localhost:3000/Login",
+    isPopup: true,
+    loginButton: {},
+    callbackHandle: true,
+  });
+
+  const hiddenLoginButton = useRef();
+
+  const onTwitchLogin = () => {
     axios({
       method: "post",
       url: "https://id.twitch.tv/oauth2/token",
@@ -29,7 +36,30 @@ const LoginModal = () => {
       });
   };
 
-  const onPostNaverLogin = () => {};
+  const onNaverLogin = () => {
+    hiddenLoginButton.current.children[0].click();
+    console.log(hiddenLoginButton.current);
+  };
+
+  const initializeNaverLogin = () => {
+    const naverLogin = new window.naver.LoginWithNaverId(naverState);
+    console.log(naverLogin.init);
+  };
+
+  const userAccessToken = () => {
+    window.location.href.includes("access_token") && getToken();
+  };
+
+  const getToken = () => {
+    const token = window.location.href.split("=")[1].split("&")[0];
+
+    // localStorage.setItem('access_token', token)
+  };
+
+  useEffect(() => {
+    initializeNaverLogin();
+    userAccessToken();
+  }, []);
 
   return (
     <S._Container>
@@ -37,17 +67,19 @@ const LoginModal = () => {
         <img src={Black_Logo} />
         <S._Pointer />
         <S._Text>billboardoo 계정 로그인 방법을 선택해주세요</S._Text>
-        <S._LoginBox
-          onClick={onPostTwitchLogin}
-          style={{ marginBottom: "20px" }}
-        >
+        <S._LoginBox onClick={onTwitchLogin} style={{ marginBottom: "20px" }}>
           <S._BrandIconBox color="#BF94FF">
             <img src={Twitch} />
           </S._BrandIconBox>
           <S._LoginBoxText>트위치로 로그인하기</S._LoginBoxText>
         </S._LoginBox>
-        <S._LoginBox>
-          <S._BrandIconBox color="#00CB6D">
+        <div
+          id="naverIdLogin"
+          ref={hiddenLoginButton}
+          style={{ display: "none" }}
+        />
+        <S._LoginBox onClick={onNaverLogin}>
+          <S._BrandIconBox onClick={onNaverLogin} color="#00CB6D">
             <img src={Naver} />
           </S._BrandIconBox>
           <S._LoginBoxText>네이버로 로그인하기</S._LoginBoxText>
