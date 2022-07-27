@@ -6,6 +6,8 @@ import Naver from "../../assets/svg/Naver.svg";
 import * as S from "./styled";
 
 const LoginModal = () => {
+  const hiddenLoginButton = useRef();
+
   const [twitchState, setTwitchState] = useState({
     client_id: process.env.REACT_APP_TWITCH_ID,
     client_secret: process.env.REACT_APP_TWITCH_SECRET,
@@ -15,12 +17,10 @@ const LoginModal = () => {
   const [naverState, setNaverState] = useState({
     clientId: process.env.REACT_APP_NAVER_ID,
     callbackUrl: "http://localhost:3000/Login",
-    isPopup: true,
+    isPopup: false,
     loginButton: {},
     callbackHandle: true,
   });
-
-  const hiddenLoginButton = useRef();
 
   const onTwitchLogin = () => {
     axios({
@@ -38,12 +38,11 @@ const LoginModal = () => {
 
   const onNaverLogin = () => {
     hiddenLoginButton.current.children[0].click();
-    console.log(hiddenLoginButton.current);
   };
 
   const initializeNaverLogin = () => {
     const naverLogin = new window.naver.LoginWithNaverId(naverState);
-    console.log(naverLogin.init);
+    naverLogin.init();
   };
 
   const userAccessToken = () => {
@@ -52,8 +51,7 @@ const LoginModal = () => {
 
   const getToken = () => {
     const token = window.location.href.split("=")[1].split("&")[0];
-
-    // localStorage.setItem('access_token', token)
+    localStorage.setItem("access_token", token);
   };
 
   useEffect(() => {
