@@ -116,6 +116,7 @@ export const PlayListlLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 75px;
 `;
 
 export const ListBox = styled.div`
@@ -170,4 +171,34 @@ export const ListTextLayout = styled.div`
 export const OptionBox = styled.img`
   cursor: pointer;
   margin-right: 25px;
+`;
+
+export const ListPlusBox = styled.div`
+  transition: all 0.1s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 80vw;
+  height: 80px;
+  background: #ffffff;
+  border-bottom: 1px solid #e3e3e3;
+
+  :hover {
+    background-color: #f9f9fb;
+  }
+`;
+
+export const PlusImg = styled.img`
+  margin-left: 25px;
+`;
+
+export const ListPlusTitle = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+  color: #000000;
+  margin: 0px;
+  margin-left: 15px;
 `;
