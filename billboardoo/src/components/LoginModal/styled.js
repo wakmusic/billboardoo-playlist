@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const _Container = styled.div`
+export const Container = styled.div`
   position: absolute;
   display: flex;
   justify-content: center;
@@ -10,7 +10,7 @@ export const _Container = styled.div`
   height: 100vh;
 `;
 
-export const _ModalBox = styled.div`
+export const ModalBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@ export const _ModalBox = styled.div`
   border-radius: 8px;
 `;
 
-export const _Pointer = styled.div`
+export const Pointer = styled.div`
   width: 8px;
   height: 8px;
   background: #191211;
@@ -32,7 +32,7 @@ export const _Pointer = styled.div`
   margin-bottom: 20px;
 `;
 
-export const _Text = styled.p`
+export const Text = styled.p`
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 400;
@@ -44,7 +44,7 @@ export const _Text = styled.p`
   margin-bottom: 30px;
 `;
 
-export const _LoginBox = styled.div`
+export const LoginBox = styled.div`
   transition: all 0.2s;
   cursor: pointer;
   display: flex;
@@ -61,7 +61,7 @@ export const _LoginBox = styled.div`
   }
 `;
 
-export const _BrandIconBox = styled.div`
+export const BrandIconBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +71,7 @@ export const _BrandIconBox = styled.div`
   background: ${(props) => props.color};
 `;
 
-export const _LoginBoxText = styled.p`
+export const LoginBoxText = styled.p`
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 400;

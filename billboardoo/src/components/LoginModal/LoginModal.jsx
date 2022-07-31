@@ -60,30 +60,30 @@ const LoginModal = () => {
   }, []);
 
   return (
-    <S._Container>
-      <S._ModalBox>
+    <S.Container>
+      <S.ModalBox>
         <img src={Black_Logo} />
-        <S._Pointer />
-        <S._Text>billboardoo 계정 로그인 방법을 선택해주세요</S._Text>
-        <S._LoginBox onClick={onTwitchLogin} style={{ marginBottom: "20px" }}>
-          <S._BrandIconBox color="#BF94FF">
+        <S.Pointer />
+        <S.Text>billboardoo 계정 로그인 방법을 선택해주세요</S.Text>
+        <S.LoginBox onClick={onTwitchLogin} style={{ marginBottom: "20px" }}>
+          <S.BrandIconBox color="#BF94FF">
             <img src={Twitch} />
-          </S._BrandIconBox>
-          <S._LoginBoxText>트위치로 로그인하기</S._LoginBoxText>
-        </S._LoginBox>
+          </S.BrandIconBox>
+          <S.LoginBoxText>트위치로 로그인하기</S.LoginBoxText>
+        </S.LoginBox>
         <div
           id="naverIdLogin"
           ref={hiddenLoginButton}
           style={{ display: "none" }}
         />
-        <S._LoginBox onClick={onNaverLogin}>
-          <S._BrandIconBox onClick={onNaverLogin} color="#00CB6D">
+        <S.LoginBox onClick={onNaverLogin}>
+          <S.BrandIconBox onClick={onNaverLogin} color="#00CB6D">
             <img src={Naver} />
-          </S._BrandIconBox>
-          <S._LoginBoxText>네이버로 로그인하기</S._LoginBoxText>
-        </S._LoginBox>
-      </S._ModalBox>
-    </S._Container>
+          </S.BrandIconBox>
+          <S.LoginBoxText>네이버로 로그인하기</S.LoginBoxText>
+        </S.LoginBox>
+      </S.ModalBox>
+    </S.Container>
   );
 };
 
