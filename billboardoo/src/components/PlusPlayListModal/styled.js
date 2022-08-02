@@ -58,6 +58,11 @@ export const NameInput = styled.input`
   padding-left: 10px;
   border-bottom: 2px solid #b6b6b6;
   margin-bottom: 60px;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  color: #000000;
 
   ::placeholder {
     font-family: "Spoqa Han Sans Neo";
