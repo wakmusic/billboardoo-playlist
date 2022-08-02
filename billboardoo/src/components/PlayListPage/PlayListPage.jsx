@@ -9,6 +9,7 @@ import * as S from "./styled";
 const PlayListPage = () => {
   const [modalBool, setModalBool] = useState(false);
   const [playList, setPlayList] = useState([]);
+  //{ name:"", count:"" }
 
   const changeModalBool = () => {
     setModalBool(!modalBool);
@@ -37,7 +38,9 @@ const PlayListPage = () => {
         <S.GuideLineText>재생목록</S.GuideLineText>
         <S.GuideLineBoxLine />
         <S.PlayListlLayout>
-          <ListBox />
+          {playList.map((item, index) => {
+            return <ListBox item={item} key={index} />;
+          })}
           <S.ListPlusBox onClick={changeModalBool}>
             <S.PlusImg src={ListPlus} />
             <S.ListPlusTitle>재생목록 추가</S.ListPlusTitle>
