@@ -38,12 +38,11 @@ export const Text = styled.p`
   font-size: 18px;
   line-height: 21px;
   color: #242424;
-
   margin: 0px;
   margin-bottom: 30px;
 `;
 
-export const LoginBox = styled.button`
+export const LoginBox = styled.div`
   transition: all 0.2s;
   cursor: pointer;
   display: flex;
