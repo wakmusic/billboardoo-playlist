@@ -18,7 +18,7 @@ export const ModalBox = styled.div`
   width: 550px;
   height: 400px;
   background: #ffffff;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
   border-radius: 8px;
 `;
 

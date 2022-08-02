@@ -41,12 +41,14 @@ export const PlusButton = styled.button`
 `;
 
 export const ModalBackGroud = styled.div`
+  z-index: 1;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.7);
 `;
 
 export const NameInput = styled.input`

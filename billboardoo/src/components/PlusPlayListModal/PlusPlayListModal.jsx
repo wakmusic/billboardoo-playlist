@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import * as S from "./styled";
 
-const PlusPlayListModal = () => {
+const PlusPlayListModal = ({ playList, setPlayList, changeModalBool }) => {
   const [playListName, setPlayListName] = useState("");
 
   const onChangePlayListName = (e) => {
@@ -11,7 +11,14 @@ const PlusPlayListModal = () => {
 
   const postAppendPlayList = () => {
     axios({});
+    let copyPlayList = [...playList];
+    copyPlayList.push({
+      name: playListName,
+      count: 0,
+    });
+    setPlayList(copyPlayList);
     setPlayListName("");
+    changeModalBool();
   };
 
   return (
