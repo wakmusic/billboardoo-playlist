@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
+import React from "react";
 import LoginBox from "./LoginBox";
 import Black_Logo from "../../assets/svg/Black_Logo.svg";
 import Twitch from "../../assets/svg/Twitch.svg";

@@ -16,7 +16,7 @@ export const ModalBox = styled.div`
   align-items: center;
   justify-content: center;
   width: 550px;
-  height: 460px;
+  height: 440px;
   background: #ffffff;
   border-radius: 8px;
 `;

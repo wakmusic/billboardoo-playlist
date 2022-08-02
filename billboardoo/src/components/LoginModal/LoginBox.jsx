@@ -1,12 +1,13 @@
 import React from "react";
 import * as S from "./styled";
 
-const Test = ({ name, children }) => {
+const LoginBox = ({ name, children }) => {
   const onClickLogin = () => {
     if (name) {
       window.location = `https://billboardoo.com/auth/login/${name}`;
     }
   };
+
   return (
     <S.LoginBox style={{ marginBottom: "20px" }} onClick={onClickLogin}>
       {children}
@@ -14,4 +15,4 @@ const Test = ({ name, children }) => {
   );
 };
 
-export default Test;
+export default LoginBox;
