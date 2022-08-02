@@ -16,9 +16,8 @@ export const ModalBox = styled.div`
   align-items: center;
   justify-content: center;
   width: 550px;
-  height: 400px;
+  height: 460px;
   background: #ffffff;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
   border-radius: 8px;
 `;
 
@@ -44,13 +43,15 @@ export const Text = styled.p`
   margin-bottom: 30px;
 `;
 
-export const LoginBox = styled.div`
+export const LoginBox = styled.button`
   transition: all 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
   width: 390px;
   height: 50px;
+  border: none;
+  padding: 0px;
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
@@ -65,6 +66,7 @@ export const BrandIconBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-right: 1px solid #d8d8d8;
 
   width: 80px;
   height: 50px;
@@ -74,7 +76,7 @@ export const BrandIconBox = styled.div`
 export const LoginBoxText = styled.p`
   font-family: "Pretendard";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 17px;
   line-height: 20px;
   color: #191211;
