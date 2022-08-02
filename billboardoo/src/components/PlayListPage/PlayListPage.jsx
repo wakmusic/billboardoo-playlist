@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import ProfileSection from "./ProfileSection";
 import ListBox from "./ListBox";
 import ListPlus from "../../assets/svg/ListPlus.svg";
@@ -6,6 +7,12 @@ import * as S from "./styled";
 
 const PlayListPage = () => {
   const [playList, setPlayList] = useState([]);
+
+  // const appendPlaylist = () => {
+  //   axios({});
+  //   let copyPlayList = [...playList];
+  //   playList.push()
+  // };
 
   return (
     <S.Container>
