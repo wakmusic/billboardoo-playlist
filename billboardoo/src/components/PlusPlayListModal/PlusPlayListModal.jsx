@@ -10,15 +10,19 @@ const PlusPlayListModal = ({ playList, setPlayList, changeModalBool }) => {
   };
 
   const postAppendPlayList = () => {
-    axios({});
-    let copyPlayList = [...playList];
-    copyPlayList.push({
-      name: playListName,
-      count: 0,
-    });
-    setPlayList(copyPlayList);
-    setPlayListName("");
-    changeModalBool();
+    if (playListName) {
+      axios({});
+      let copyPlayList = [...playList];
+      copyPlayList.push({
+        name: playListName,
+        count: 0,
+      });
+      setPlayList(copyPlayList);
+      setPlayListName("");
+      changeModalBool();
+    } else {
+      alert("이름을 입력해주세요.");
+    }
   };
 
   return (
