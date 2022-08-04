@@ -7,12 +7,16 @@ export const testHeader = styled.div`
 `;
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   height: auto;
   padding-bottom: 75px;
 `;
 
 export const MusicSection = styled.div`
+  width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,6 +30,7 @@ export const TitleSection = styled.p`
   font-size: 24px;
   line-height: 29px;
   color: #000000;
+  width: 100%;
   margin: 0px;
   margin-top: 60px;
   margin-left: 65px;
@@ -73,4 +78,60 @@ export const MusicCount = styled.p`
   line-height: 21px;
   color: #ababab;
   margin: 0px;
+`;
+
+export const ClassificationName = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+  color: #000000;
+  margin: 0px;
+  margin-bottom: 25px;
+`;
+
+export const MusicLayout = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 68px;
+`;
+
+export const NextButtonLeft = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 1000px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  margin-right: 25px;
+`;
+
+export const NextButtonRight = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 1000px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  margin-left: 25px;
+`;
+
+export const ClassificationLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+export const ArrowLayout = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 25px;
 `;
