@@ -70,7 +70,7 @@ export const MusicName = styled.p`
   margin-bottom: 10px;
 `;
 
-export const MusicCount = styled.p`
+export const MusicSinger = styled.p`
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 600;
@@ -109,9 +109,14 @@ export const NextButtonLeft = styled.div`
   border-radius: 1000px;
   transform: matrix(-1, 0, 0, 1, 0, 0);
   margin-right: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `;
 
 export const NextButtonRight = styled.div`
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,6 +127,10 @@ export const NextButtonRight = styled.div`
   border-radius: 1000px;
   transform: matrix(-1, 0, 0, 1, 0, 0);
   margin-left: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `;
 
 export const ClassificationLayout = styled.div`

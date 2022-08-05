@@ -1,12 +1,12 @@
 import React from "react";
 import * as S from "./styled";
 
-const Music = () => {
+const Music = ({ item }) => {
   return (
     <S.MusicBox>
       <S.MusicImg />
-      <S.MusicName>곡 제목</S.MusicName>
-      <S.MusicCount>22곡</S.MusicCount>
+      <S.MusicName>{item.name}</S.MusicName>
+      <S.MusicSinger>{item.singer}</S.MusicSinger>
     </S.MusicBox>
   );
 };
