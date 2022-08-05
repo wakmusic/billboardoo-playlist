@@ -6,19 +6,24 @@ import * as S from "./styled";
 
 const Classification = ({ state }) => {
   const [count, setCount] = useState(0);
+  const { musicList } = state;
 
-  const musicMap = state.musicList.map((item, index) => {
+  const musicMap = musicList.map((item, index) => {
     if (index >= count && index <= 5 + count) {
       return <Music item={item} key={index} />;
     }
   });
 
   const plusCount = () => {
-    setCount(count + 1);
+    if (musicList.length > 6 + count) {
+      setCount(count + 1);
+    }
   };
 
   const minusCount = () => {
-    setCount(count - 1);
+    if (count > 0) {
+      setCount(count - 1);
+    }
   };
 
   return (
