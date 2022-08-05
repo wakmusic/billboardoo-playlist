@@ -6,40 +6,17 @@ import * as S from "./styled";
 const PlusMusicPage = () => {
   const [popularityMusic, setPopularityMusic] = useState({
     title: "인기곡",
-    musicList: [
-      {
-        name: "RE:Wind",
-        singer: "이세계아이돌",
-      },
-      {
-        name: "RE:Wind",
-        singer: "이세계아이돌",
-      },
-      {
-        name: "RE:Wind",
-        singer: "이세계아이돌",
-      },
-      {
-        name: "RE:Wind",
-        singer: "이세계아이돌",
-      },
-      {
-        name: "RE:Wind",
-        singer: "이세계아이돌",
-      },
-      {
-        name: "RE:Wind",
-        singer: "이세계아이돌",
-      },
-       {
-        name: "RE:Wind",
-        singer: "ㅇㅇ",
-      },
-    ],
+    musicList: [],
   });
-  const [newMusic, setNewMusic] = useState({});
-  const [idolMusic, setIdolMusic] = useState({});
-  const [fixmemberMusic, setFixmemberMusic] = useState({});
+  const [newMusic, setNewMusic] = useState({ title: "최신곡", musicList: [] });
+  const [idolMusic, setIdolMusic] = useState({
+    title: "이세계 아이돌",
+    musicList: [],
+  });
+  const [fixmemberMusic, setFixmemberMusic] = useState({
+    title: "고정 멤버",
+    musicList: [],
+  });
 
   useEffect(() => {
     axios({});
