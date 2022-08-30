@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +19,13 @@ export const PlusBox = styled.div`
   width: 500px;
   height: 70px;
   border-top: 1px solid #e3e3e3;
+`;
+
+export const BackImg = styled.img`
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;
 
 export const PlusButton = styled.button`

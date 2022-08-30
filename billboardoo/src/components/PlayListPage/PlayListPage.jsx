@@ -8,7 +8,7 @@ import * as S from "./styled";
 
 const PlayListPage = () => {
   const [modalBool, setModalBool] = useState(false);
-  const [playList, setPlayList] = useState([]);
+  const [playListBundle, setPlayListBundle] = useState([]);
   //{ name:"", count:"" }
 
   const changeModalBool = () => {
@@ -25,8 +25,8 @@ const PlayListPage = () => {
     <S.Container>
       {modalBool ? (
         <PlusPlayListModal
-          playList={playList}
-          setPlayList={setPlayList}
+          playListBundle={playListBundle}
+          setPlayListBundle={setPlayListBundle}
           changeModalBool={changeModalBool}
         />
       ) : (
@@ -38,7 +38,7 @@ const PlayListPage = () => {
         <S.GuideLineText>재생목록</S.GuideLineText>
         <S.GuideLineBoxLine />
         <S.PlayListlLayout>
-          {playList.map((item, index) => {
+          {playListBundle.map((item, index) => {
             return <ListBox item={item} key={index} />;
           })}
           <S.ListPlusBox onClick={changeModalBool}>
