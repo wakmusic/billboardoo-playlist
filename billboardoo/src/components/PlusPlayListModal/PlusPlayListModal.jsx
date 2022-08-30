@@ -11,7 +11,7 @@ const PlusPlayListModal = (props) => {
     creator: "",
     platform: "", //로그인 유형 ex(google,naver,twitchs)
     image: "",
-    songlist: ["팬서비스", "마지막재회", "봄여름가을겨울"],
+    songlist: [],
     public: "false", //true, false
     clientId: "",
   });
@@ -26,7 +26,7 @@ const PlusPlayListModal = (props) => {
       let copyPlayListBundle = [...playListBundle];
       copyPlayListBundle.push(onePlayList);
       setPlayListBundle(copyPlayListBundle);
-      setOnePlayList({ ...onePlayList, name: "" });
+      setOnePlayList({ ...onePlayList, title: "" });
       changeModalBool();
     } else {
       alert("이름을 입력해주세요.");
@@ -36,13 +36,18 @@ const PlusPlayListModal = (props) => {
   return (
     <S.ModalBackGroud>
       <S.Container>
-        <S.BackImg src={X} />
+        <S.BackImg
+          src={X}
+          onClick={() => {
+            changeModalBool(false);
+          }}
+        />
         <S.ModalTitle>재생목록 추가</S.ModalTitle>
         <S.ModalPointer />
         <S.IntroduceText>새로운 재생목록의 이름을 입력해주세요</S.IntroduceText>
         <S.NameInput
           onChange={onChangePlayListName}
-          value={onePlayList.name}
+          value={onePlayList.title}
           placeholder="이름을 입력해주세요"
         />
         <S.PlusBox>
