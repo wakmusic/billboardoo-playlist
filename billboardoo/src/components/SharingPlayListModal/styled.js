@@ -55,7 +55,7 @@ export const ModalBackGroud = styled.div`
   background: rgba(0, 0, 0, 0.7);
 `;
 
-export const NameInput = styled.input`
+export const LinkInput = styled.input`
   border-radius: 5px;
   width: 350px;
   height: 44px;
