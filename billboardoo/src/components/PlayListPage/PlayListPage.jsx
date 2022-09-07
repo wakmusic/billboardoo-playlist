@@ -5,11 +5,21 @@ import ListBox from "./ListBox";
 import PlusPlayListModal from "../PlusPlayListModal/PlusPlayListModal";
 import ListPlus from "../../assets/svg/ListPlus.svg";
 import * as S from "./styled";
+import { useEffect } from "react";
 
 const PlayListPage = () => {
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+  });
   const [modalBool, setModalBool] = useState(false);
   const [playList, setPlayList] = useState([]);
   //{ name:"", count:"" }
+
+  useEffect(() => {
+    axios.get("/api/auth").then((res) => {
+      console.log(res);
+    });
+  }, []);
 
   const changeModalBool = () => {
     setModalBool(!modalBool);

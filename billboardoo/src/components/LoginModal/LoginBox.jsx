@@ -4,7 +4,7 @@ import * as S from "./styled";
 const LoginBox = ({ name, children }) => {
   const onClickLogin = () => {
     if (name) {
-      window.location = `https://billboardoo.com/auth/login/${name}`;
+      window.location = `http://localhost/auth/login/${name}`;
     }
   };
 

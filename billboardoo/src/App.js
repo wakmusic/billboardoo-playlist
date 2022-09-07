@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes } from "react-router-dom";
+import { Routes, BrowserRouter, Route } from "react-router-dom";
 import PlusPlayListModal from "./components/PlusPlayListModal/PlusPlayListModal";
 import PlayListPage from "./components/PlayListPage/PlayListPage";
 import PlusMusicPage from "./components/PlusMusicPage/PlusMusicPage";
@@ -9,7 +9,12 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <PlusMusicPage />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/myPage" element={<PlayListPage />}></Route>
+          <Route path="/" element={<LoginModal />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
