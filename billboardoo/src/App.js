@@ -10,16 +10,12 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-<<<<<<< HEAD
       <BrowserRouter>
         <Routes>
           <Route path="/myPage" element={<PlayListPage />}></Route>
           <Route path="/" element={<LoginModal />}></Route>
         </Routes>
       </BrowserRouter>
-=======
-      <SharingListModal />
->>>>>>> main
     </div>
   );
 }
