@@ -1,24 +1,32 @@
 import React, { useState } from "react";
+import X from "../../assets/svg/X.svg";
 import axios from "axios";
 import * as S from "./styled";
 
-const PlusPlayListModal = ({ playList, setPlayList, changeModalBool }) => {
-  const [playListName, setPlayListName] = useState("");
+const PlusPlayListModal = (props) => {
+  const { playListBundle, setPlayListBundle, changeModalBool } = props;
+
+  const [onePlayList, setOnePlayList] = useState({
+    title: "",
+    creator: "",
+    platform: "", //로그인 유형 ex(google,naver,twitchs)
+    image: "",
+    songlist: [],
+    public: "false", //true, false
+    clientId: "",
+  });
 
   const onChangePlayListName = (e) => {
-    setPlayListName(e.target.value);
+    setOnePlayList(e.target.value);
   };
 
   const postAppendPlayList = () => {
-    if (playListName) {
+    if (playListBundle) {
       axios({});
-      let copyPlayList = [...playList];
-      copyPlayList.push({
-        name: playListName,
-        count: 0,
-      });
-      setPlayList(copyPlayList);
-      setPlayListName("");
+      let copyPlayListBundle = [...playListBundle];
+      copyPlayListBundle.push(onePlayList);
+      setPlayListBundle(copyPlayListBundle);
+      setOnePlayList({ ...onePlayList, title: "" });
       changeModalBool();
     } else {
       alert("이름을 입력해주세요.");
@@ -28,12 +36,18 @@ const PlusPlayListModal = ({ playList, setPlayList, changeModalBool }) => {
   return (
     <S.ModalBackGroud>
       <S.Container>
+        <S.BackImg
+          src={X}
+          onClick={() => {
+            changeModalBool(false);
+          }}
+        />
         <S.ModalTitle>재생목록 추가</S.ModalTitle>
         <S.ModalPointer />
         <S.IntroduceText>새로운 재생목록의 이름을 입력해주세요</S.IntroduceText>
         <S.NameInput
           onChange={onChangePlayListName}
-          value={playListName}
+          value={onePlayList.title}
           placeholder="이름을 입력해주세요"
         />
         <S.PlusBox>

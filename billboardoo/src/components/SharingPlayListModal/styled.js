@@ -33,7 +33,7 @@ export const PlusButton = styled.button`
   transition: all 0.3s;
   width: 180px;
   height: 44px;
-  background: #ffffff;
+  background: #000000;
   border-radius: 5px;
   border: none;
   font-family: "Spoqa Han Sans Neo";
@@ -41,11 +41,7 @@ export const PlusButton = styled.button`
   font-weight: 500;
   font-size: 20px;
   line-height: 21px;
-  color: #000000;
-
-  :hover {
-    background-color: #efefef;
-  }
+  color: #ffffff;
 `;
 
 export const ModalBackGroud = styled.div`
@@ -59,14 +55,15 @@ export const ModalBackGroud = styled.div`
   background: rgba(0, 0, 0, 0.7);
 `;
 
-export const NameInput = styled.input`
+export const LinkInput = styled.input`
+  border-radius: 5px;
   width: 350px;
-  height: 36px;
+  height: 44px;
   background: #ffffff;
   border: none;
   outline: none;
-  padding-left: 10px;
-  border-bottom: 2px solid #b6b6b6;
+  border: 2px solid #ababab;
+  padding-left: 15px;
   margin-bottom: 60px;
   font-family: "Spoqa Han Sans Neo";
   font-style: normal;
