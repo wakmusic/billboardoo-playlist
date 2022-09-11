@@ -10,6 +10,9 @@ import { useEffect } from "react";
 const PlayListPage = () => {
   const [userInfo, setUserInfo] = useState({
     name: "",
+    id: "",
+    photo: "",
+    loginType: "",
   });
   const [modalBool, setModalBool] = useState(false);
   const [playListBundle, setPlayListBundle] = useState([]);
@@ -17,10 +20,21 @@ const PlayListPage = () => {
 
   useEffect(() => {
     axios.get("/api/auth").then((res) => {
-      console.log(res);
+      console.log(res.data);
     });
   }, []);
 
+  const userInfoSetting = (data) => {
+    switch (data.provider) {
+      case "google":
+        break;
+      case "naver":
+        break;
+      case "twitch":
+        alert("비교하려는 값보다 큽니다.");
+        break;
+    }
+  };
   const changeModalBool = () => {
     setModalBool(!modalBool);
   };

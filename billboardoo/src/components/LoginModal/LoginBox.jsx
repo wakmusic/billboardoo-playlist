@@ -5,6 +5,7 @@ const LoginBox = ({ name, children }) => {
   const onClickLogin = () => {
     if (name) {
       window.location = `http://localhost/auth/login/${name}`;
+      localStorage.setItem("name", name);
     }
   };
 
