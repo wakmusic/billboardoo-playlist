@@ -20,18 +20,25 @@ const PlayListPage = () => {
 
   useEffect(() => {
     axios.get("/api/auth").then((res) => {
-      console.log(res.data);
+      console.log(res);
+      userInfoSetting(res.data);
     });
   }, []);
 
   const userInfoSetting = (data) => {
     switch (data.provider) {
       case "google":
+        setUserInfo({
+          name: data.displayName,
+          id: data.id,
+          photo: data.photos[0].value,
+          loginType: data.provider,
+        });
+        localStorage.setItem("accessToken", data.accessToken);
         break;
       case "naver":
         break;
       case "twitch":
-        alert("비교하려는 값보다 큽니다.");
         break;
     }
   };
@@ -57,7 +64,7 @@ const PlayListPage = () => {
         <></>
       )}
       <S.TestHeader />
-      <ProfileSection />
+      <ProfileSection profile={userInfo.photo} />
       <S.GuideLineBox>
         <S.GuideLineText>재생목록</S.GuideLineText>
         <S.GuideLineBoxLine />
