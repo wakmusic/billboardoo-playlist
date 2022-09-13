@@ -2,17 +2,17 @@ import React from "react";
 import DefaultProfile from "../../assets/svg/DefalutProfile.svg";
 import * as S from "./styled";
 
-const ProfileSection = ({ profile }) => {
+const ProfileSection = ({ userInfo }) => {
   return (
     <S.PorfileSection>
       <S.IntroduceText>MY PAGE</S.IntroduceText>
       <S.NotProfile>
-        <img src={profile} />
+        <img src={userInfo.photo || DefaultProfile} />
       </S.NotProfile>
       <S.TextLayout>
-        <S.NickNameText>닉네임</S.NickNameText>
+        <S.NickNameText>{userInfo.name}</S.NickNameText>
         <S.TextGuideLine />
-        <S.IdText>biob1121</S.IdText>
+        <S.TypeText>{userInfo.loginType}</S.TypeText>
       </S.TextLayout>
     </S.PorfileSection>
   );

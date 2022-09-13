@@ -58,7 +58,7 @@ export const TextLayout = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 15px;
+  gap: 12px;
   margin-left: 25px;
 `;
 
@@ -79,11 +79,11 @@ export const TextGuideLine = styled.div`
   border-radius: 100px;
 `;
 
-export const IdText = styled.div`
+export const TypeText = styled.div`
   font-family: "Pretendard";
   font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 22px;
   line-height: 24px;
   color: #ffffff;
   margin: 0px;

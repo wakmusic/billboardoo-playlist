@@ -64,7 +64,7 @@ const PlayListPage = () => {
         <></>
       )}
       <S.TestHeader />
-      <ProfileSection profile={userInfo.photo} />
+      <ProfileSection userInfo={userInfo} />
       <S.GuideLineBox>
         <S.GuideLineText>재생목록</S.GuideLineText>
         <S.GuideLineBoxLine />
