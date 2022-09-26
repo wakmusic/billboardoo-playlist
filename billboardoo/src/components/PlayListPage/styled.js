@@ -37,6 +37,20 @@ export const IntroduceText = styled.p`
   margin: 0px;
 `;
 
+export const LogoutText = styled.p`
+  cursor: pointer;
+  position: absolute;
+  right: 192px;
+  top: 20px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  text-decoration-line: underline;
+  color: #ffffff;
+  margin: 0px;
+`;
+
 export const NotProfile = styled.div`
   display: flex;
   justify-content: center;

@@ -6,6 +6,7 @@ const ProfileSection = ({ userInfo }) => {
   return (
     <S.PorfileSection>
       <S.IntroduceText>MY PAGE</S.IntroduceText>
+      <S.LogoutText>로그아웃</S.LogoutText>
       <S.NotProfile>
         <img src={userInfo.photo || DefaultProfile} />
       </S.NotProfile>
