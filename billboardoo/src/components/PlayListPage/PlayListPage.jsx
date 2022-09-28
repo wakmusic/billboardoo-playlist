@@ -27,7 +27,7 @@ const PlayListPage = () => {
 
   const getPlayList = (userId) => {
     axios
-      .post(`http://billboardoo.com/api/playlist/list/${userId}`, {})
+      .post(`http://localhost:6060/api/playlist/list/${userId}`, {})
       .then((res) => {
         console.log(res);
       });
