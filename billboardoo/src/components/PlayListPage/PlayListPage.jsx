@@ -2,33 +2,39 @@ import React, { useState } from "react";
 import axios from "axios";
 import ProfileSection from "./ProfileSection";
 import ListBox from "./ListBox";
-import PlusPlayListModal from "../PlusPlayListModal/PlusPlayListModal";
-import ListPlus from "../../assets/svg/ListPlus.svg";
+import PlusPlaylistModal from "../PlusPlayListModal/PlusPlaylistModal";
+import ListPlus from "../../assets/svgs/ListPlus.svg";
 import * as S from "./styled";
 import { useEffect } from "react";
 
-const PlayListPage = () => {
+const PlaylistPage = () => {
+  const [modalBool, setModalBool] = useState(false);
   const [userInfo, setUserInfo] = useState({
     name: "",
     id: "",
     photo: "",
     loginType: "",
   });
-  const [modalBool, setModalBool] = useState(false);
-  const [playListBundle, setPlayListBundle] = useState([]);
+  const [playlistInfo, setPlaylistInfo] = useState({});
+  const [playlistBundle, setPlaylistBundle] = useState([]);
   //{ name:"", count:"" }
 
   useEffect(() => {
     axios.get("/api/auth").then((res) => {
       userInfoSetting(res.data);
-      getPlayList(res.data.id);
+      getPlaylist(res.data.id);
     });
   }, []);
 
-  const getPlayList = (userId) => {
-    axios.get(`/api/playlist/list/${userId}`).then((res) => {
-      setPlayListBundle(res.data.playlist);
-    });
+  const getPlaylist = (userId) => {
+    axios
+      .get(`/api/playlist/list/${userId}`)
+      .then((res) => {
+        setPlaylistBundle(res.data.playlist);
+      })
+      .catch((res) => {
+        alert("오류가 발생했습니다");
+      });
   };
 
   const userInfoSetting = (data) => {
@@ -68,18 +74,18 @@ const PlayListPage = () => {
     setModalBool(!modalBool);
   };
 
-  // const appendPlaylist = () => {
-  //   axios({});
-  //   let copyPlayList = [...playList];
-  //   playList.push()
-  // };
+  const appendPlaylist = () => {
+    axios.post("/api/playlist/create");
+    let copyPlaylist = [...playlistBundle];
+    copyPlaylist.push();
+  };
 
   return (
     <S.Container>
       {modalBool ? (
-        <PlusPlayListModal
-          playListBundle={playListBundle}
-          setPlayListBundle={setPlayListBundle}
+        <PlusPlaylistModal
+          playlistBundle={playlistBundle}
+          setPlaylistBundle={setPlaylistBundle}
           changeModalBool={changeModalBool}
         />
       ) : (
@@ -90,18 +96,18 @@ const PlayListPage = () => {
       <S.GuideLineBox>
         <S.GuideLineText>재생목록</S.GuideLineText>
         <S.GuideLineBoxLine />
-        <S.PlayListlLayout>
-          {playListBundle.map((item, index) => {
-            return <ListBox item={item} key={index} />;
+        <S.PlaylistlLayout>
+          {playlistBundle.map((item, index) => {
+            return <listBox item={item} key={index} />;
           })}
           <S.ListPlusBox onClick={changeModalBool}>
             <S.PlusImg src={ListPlus} />
             <S.ListPlusTitle>재생목록 추가</S.ListPlusTitle>
           </S.ListPlusBox>
-        </S.PlayListlLayout>
+        </S.PlaylistlLayout>
       </S.GuideLineBox>
     </S.Container>
   );
 };
 
-export default PlayListPage;
+export default PlaylistPage;

@@ -3,10 +3,10 @@ import X from "../../assets/svg/X.svg";
 import axios from "axios";
 import * as S from "./styled";
 
-const PlusPlayListModal = (props) => {
-  const { playListBundle, setPlayListBundle, changeModalBool } = props;
+const PlusPlaylistModal = (props) => {
+  const { playlistBundle, setPlaylistBundle, changeModalBool } = props;
 
-  const [onePlayList, setOnePlayList] = useState({
+  const [onePlaylist, setOnePlaylist] = useState({
     title: "",
     creator: "",
     platform: "", //로그인 유형 ex(google,naver,twitchs)
@@ -16,17 +16,17 @@ const PlusPlayListModal = (props) => {
     clientId: "",
   });
 
-  const onChangePlayListName = (e) => {
-    setOnePlayList(e.target.value);
+  const onChangePlaylistName = (e) => {
+    setOnePlaylist(e.target.value);
   };
 
-  const postAppendPlayList = () => {
-    if (playListBundle) {
+  const postAppendPlaylist = () => {
+    if (playlistBundle) {
       axios({});
-      let copyPlayListBundle = [...playListBundle];
-      copyPlayListBundle.push(onePlayList);
-      setPlayListBundle(copyPlayListBundle);
-      setOnePlayList({ ...onePlayList, title: "" });
+      let copyPlaylistBundle = [...playListBundle];
+      copyPlaylistBundle.push(onePlaylist);
+      setPlaylistBundle(copyPlaylistBundle);
+      setOnePlaylist({ ...onePlaylist, title: "" });
       changeModalBool();
     } else {
       alert("이름을 입력해주세요.");
@@ -46,16 +46,16 @@ const PlusPlayListModal = (props) => {
         <S.ModalPointer />
         <S.IntroduceText>새로운 재생목록의 이름을 입력해주세요</S.IntroduceText>
         <S.NameInput
-          onChange={onChangePlayListName}
+          onChange={onChangePlaylistName}
           value={onePlayList.title}
           placeholder="이름을 입력해주세요"
         />
         <S.PlusBox>
-          <S.PlusButton onClick={postAppendPlayList}>생성하기</S.PlusButton>
+          <S.PlusButton onClick={postAppendPlaylist}>생성하기</S.PlusButton>
         </S.PlusBox>
       </S.Container>
     </S.ModalBackGroud>
   );
 };
 
-export default PlusPlayListModal;
+export default PlusPlaylistModal;

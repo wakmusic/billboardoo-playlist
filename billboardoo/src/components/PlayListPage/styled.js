@@ -127,7 +127,7 @@ export const GuideLineBoxLine = styled.div`
   border-radius: 100px;
 `;
 
-export const PlayListlLayout = styled.div`
+export const PlaylistlLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
