@@ -1,31 +1,35 @@
 import React, { useState } from "react";
-import X from "../../assets/svg/X.svg";
+import X from "../../assets/svgs/X.svg";
 import axios from "axios";
 import * as S from "./styled";
 
 const PlusPlaylistModal = (props) => {
-  const { playlistBundle, setPlaylistBundle, changeModalBool } = props;
+  const { playlistBundle, setPlaylistBundle, changeModalBool, userInfo } =
+    props;
 
   const [onePlaylist, setOnePlaylist] = useState({
     title: "",
-    creator: "",
+    creator: userInfo.name,
     platform: "", //로그인 유형 ex(google,naver,twitchs)
     image: "",
     songlist: [],
     public: "false", //true, false
-    clientId: "",
+    clientId: userInfo.id,
   });
 
   const onChangePlaylistName = (e) => {
-    setOnePlaylist(e.target.value);
+    if (onePlaylist.title.length < 20) {
+      setOnePlaylist({ ...onePlaylist, title: e.target.value });
+    }
   };
 
   const postAppendPlaylist = () => {
-    if (playlistBundle) {
-      axios({});
-      let copyPlaylistBundle = [...playListBundle];
-      copyPlaylistBundle.push(onePlaylist);
-      setPlaylistBundle(copyPlaylistBundle);
+    if (onePlaylist.title) {
+      axios.post().then((res) => {
+        let copyPlaylistBundle = [...playlistBundle];
+        copyPlaylistBundle.push(onePlaylist);
+        setPlaylistBundle(copyPlaylistBundle);
+      });
       setOnePlaylist({ ...onePlaylist, title: "" });
       changeModalBool();
     } else {
@@ -47,7 +51,7 @@ const PlusPlaylistModal = (props) => {
         <S.IntroduceText>새로운 재생목록의 이름을 입력해주세요</S.IntroduceText>
         <S.NameInput
           onChange={onChangePlaylistName}
-          value={onePlayList.title}
+          value={onePlaylist.title}
           placeholder="이름을 입력해주세요"
         />
         <S.PlusBox>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Music from "./Music";
-import ArrowLeft from "../../assets/svg/ArrowLeft.svg";
-import ArrowRight from "../../assets/svg/ArrowRight.svg";
+import ArrowLeft from "../../assets/svgs/ArrowLeft.svg";
+import ArrowRight from "../../assets/svgs/ArrowRight.svg";
 import * as S from "./styled";
 
 const Classification = ({ state }) => {

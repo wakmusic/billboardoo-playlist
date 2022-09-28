@@ -1,9 +1,9 @@
 import React from "react";
 import LoginBox from "./LoginBox";
-import Black_Logo from "../../assets/svg/Black_Logo.svg";
-import Twitch from "../../assets/svg/Twitch.svg";
-import Naver from "../../assets/svg/Naver.svg";
-import Google from "../../assets/svg/Google.svg";
+import Black_Logo from "../../assets/svgs/Black_Logo.svg";
+import Twitch from "../../assets/svgs/Twitch.svg";
+import Naver from "../../assets/svgs/Naver.svg";
+import Google from "../../assets/svgs/Google.svg";
 import * as S from "./styled";
 
 const LoginModal = () => {

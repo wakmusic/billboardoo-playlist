@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import X from "../../assets/svg/X.svg";
+import X from "../../assets/svgs/X.svg";
 import * as S from "./styled";
 
 const SharingListModal = () => {

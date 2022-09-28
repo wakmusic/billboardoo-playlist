@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultProfile from "../../assets/svg/DefalutProfile.svg";
+import DefaultProfile from "../../assets/svgs/DefalutProfile.svg";
 import * as S from "./styled";
 
 const ProfileSection = ({ userInfo }) => {
@@ -8,7 +8,7 @@ const ProfileSection = ({ userInfo }) => {
       <S.IntroduceText>MY PAGE</S.IntroduceText>
       <S.LogoutText>로그아웃</S.LogoutText>
       <S.NotProfile>
-        <img src={userInfo.photo || DefaultProfile} />
+        <img src={userInfo.profile || DefaultProfile} />
       </S.NotProfile>
       <S.TextLayout>
         <S.NickNameText>{userInfo.name}</S.NickNameText>

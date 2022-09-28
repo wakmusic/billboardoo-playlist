@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import ProfileSection from "./ProfileSection";
 import ListBox from "./ListBox";
-import PlusPlaylistModal from "../PlusPlayListModal/PlusPlaylistModal";
+import PlusPlaylistModal from "../PlusPlaylistModal/PlusPlaylistModal";
 import ListPlus from "../../assets/svgs/ListPlus.svg";
 import * as S from "./styled";
 import { useEffect } from "react";
@@ -12,7 +12,7 @@ const PlaylistPage = () => {
   const [userInfo, setUserInfo] = useState({
     name: "",
     id: "",
-    photo: "",
+    profile: "",
     loginType: "",
   });
   const [playlistInfo, setPlaylistInfo] = useState({});
@@ -43,7 +43,7 @@ const PlaylistPage = () => {
         setUserInfo({
           name: data.displayName,
           id: data.id,
-          photo: data.photos[0].value,
+          profile: data.photos[0].value,
           loginType: data.provider,
         });
         localStorage.setItem("accessToken", data.accessToken);
@@ -52,7 +52,7 @@ const PlaylistPage = () => {
         setUserInfo({
           name: data.displayName,
           id: data.id,
-          photo: data.profile_image,
+          profile: data.profile_image,
           loginType: data.provider,
         });
         localStorage.setItem("accessToken", data.accessToken);
@@ -62,7 +62,7 @@ const PlaylistPage = () => {
         setUserInfo({
           name: data.display_name,
           id: data.id,
-          photo: data.profile_image_url,
+          profile: data.profile_image_url,
           loginType: data.provider,
         });
         localStorage.setItem("accessToken", data.accessToken);
@@ -84,6 +84,7 @@ const PlaylistPage = () => {
     <S.Container>
       {modalBool ? (
         <PlusPlaylistModal
+          userInfo={userInfo}
           playlistBundle={playlistBundle}
           setPlaylistBundle={setPlaylistBundle}
           changeModalBool={changeModalBool}

@@ -1,5 +1,5 @@
 import React from "react";
-import Option from "../../assets/svg/Option.svg";
+import Option from "../../assets/svgs/Option.svg";
 import * as S from "./styled";
 
 const ListBox = ({ item }) => {
