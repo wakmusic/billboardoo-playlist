@@ -26,11 +26,9 @@ const PlayListPage = () => {
   }, []);
 
   const getPlayList = (userId) => {
-    axios
-      .post(`http://localhost:6060/api/playlist/list/${userId}`, {})
-      .then((res) => {
-        console.log(res);
-      });
+    axios.get(`/api/playlist/list/${userId}`).then((res) => {
+      setPlayListBundle(res.data.playlist);
+    });
   };
 
   const userInfoSetting = (data) => {
