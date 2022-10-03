@@ -17,19 +17,21 @@ const PlusPlaylistModal = (props) => {
     clientId: userInfo.id,
   });
 
+  //추가할 플레이리스트 이름 설정 함수
   const onChangePlaylistName = (e) => {
-    if (onePlaylist.title.length < 20) {
+    if (onePlaylist.title.length <= 20) {
       setOnePlaylist({ ...onePlaylist, title: e.target.value });
     }
   };
 
+  //플레이리스트 추가 요청 API
   const postAppendPlaylist = () => {
     if (onePlaylist.title) {
-      axios.post().then((res) => {
-        let copyPlaylistBundle = [...playlistBundle];
-        copyPlaylistBundle.push(onePlaylist);
-        setPlaylistBundle(copyPlaylistBundle);
-      });
+      axios.post("/api/playlist/create", onePlaylist).then((res) => {
+        console.log(res);
+      }).catch(()=>{
+        alert("실패하셨습니다")
+      })
       setOnePlaylist({ ...onePlaylist, title: "" });
       changeModalBool();
     } else {
@@ -48,7 +50,7 @@ const PlusPlaylistModal = (props) => {
         />
         <S.ModalTitle>재생목록 추가</S.ModalTitle>
         <S.ModalPointer />
-        <S.IntroduceText>새로운 재생목록의 이름을 입력해주세요</S.IntroduceText>
+        <S.IntroduceText>새로운 재생목록 이름 입력 (20자 이하)</S.IntroduceText>
         <S.NameInput
           onChange={onChangePlaylistName}
           value={onePlaylist.title}
