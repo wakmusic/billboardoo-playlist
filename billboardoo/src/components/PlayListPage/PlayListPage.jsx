@@ -99,7 +99,7 @@ const PlaylistPage = () => {
         <S.GuideLineBoxLine />
         <S.PlaylistlLayout>
           {playlistBundle.map((item, index) => {
-            return <ListBox item={item} key={index} />;
+            return <ListBox item={item} clientId={userInfo.id} key={index} />;
           })}
           <S.ListPlusBox onClick={changeModalBool}>
             <S.PlusImg src={ListPlus} />
