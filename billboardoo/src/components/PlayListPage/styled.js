@@ -166,7 +166,7 @@ export const ListTitle = styled.p`
   line-height: 26px;
   color: #000000;
   margin: 0px;
-  margin-left: 20px;
+  margin-left: 5px;
 `;
 
 export const ListGuideLine = styled.div`

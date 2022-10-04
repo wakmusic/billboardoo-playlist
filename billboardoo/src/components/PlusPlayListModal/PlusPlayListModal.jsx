@@ -19,9 +19,7 @@ const PlusPlaylistModal = (props) => {
 
   //추가할 플레이리스트 이름 설정 함수
   const onChangePlaylistName = (e) => {
-    if (onePlaylist.title.length <= 20) {
-      setOnePlaylist({ ...onePlaylist, title: e.target.value });
-    }
+    setOnePlaylist({ ...onePlaylist, title: e.target.value });
   };
 
   //플레이리스트 추가 요청 API
