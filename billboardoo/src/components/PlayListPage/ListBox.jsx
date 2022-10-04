@@ -6,7 +6,8 @@ const ListBox = ({ item }) => {
   return (
     <S.ListBox>
       <S.ListTextLayout>
-        <S.ListTitle>{item.name}</S.ListTitle>
+        <S.ListImg />
+        <S.ListTitle>{item.title}</S.ListTitle>
         <S.ListGuideLine />
         <S.ListText>{item.count}곡</S.ListText>
       </S.ListTextLayout>

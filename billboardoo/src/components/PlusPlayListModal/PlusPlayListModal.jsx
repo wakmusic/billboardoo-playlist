@@ -10,7 +10,7 @@ const PlusPlaylistModal = (props) => {
   const [onePlaylist, setOnePlaylist] = useState({
     title: "",
     creator: userInfo.name,
-    platform: "", //로그인 유형 ex(google,naver,twitchs)
+    platform: userInfo.platform, //로그인 유형 ex(google,naver,twitchs)
     image: "",
     songlist: [],
     public: "false", //true, false
@@ -27,11 +27,14 @@ const PlusPlaylistModal = (props) => {
   //플레이리스트 추가 요청 API
   const postAppendPlaylist = () => {
     if (onePlaylist.title) {
-      axios.post("/api/playlist/create", onePlaylist).then((res) => {
-        console.log(res);
-      }).catch(()=>{
-        alert("실패하셨습니다")
-      })
+      axios
+        .post("/api/playlist/create", onePlaylist)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch(() => {
+          alert("실패하셨습니다");
+        });
       setOnePlaylist({ ...onePlaylist, title: "" });
       changeModalBool();
     } else {

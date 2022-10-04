@@ -13,7 +13,7 @@ const PlaylistPage = () => {
     name: "",
     id: "",
     profile: "",
-    loginType: "",
+    platform: "",
   });
   const [playlistInfo, setPlaylistInfo] = useState({});
   const [playlistBundle, setPlaylistBundle] = useState([]);
@@ -44,7 +44,7 @@ const PlaylistPage = () => {
           name: data.displayName,
           id: data.id,
           profile: data.photos[0].value,
-          loginType: data.provider,
+          platform: data.provider,
         });
         localStorage.setItem("accessToken", data.accessToken);
         break;
@@ -53,7 +53,7 @@ const PlaylistPage = () => {
           name: data.displayName,
           id: data.id,
           profile: data.profile_image,
-          loginType: data.provider,
+          platform: data.provider,
         });
         localStorage.setItem("accessToken", data.accessToken);
         localStorage.setItem("refreshToken", data.refreshToken);
@@ -63,7 +63,7 @@ const PlaylistPage = () => {
           name: data.display_name,
           id: data.id,
           profile: data.profile_image_url,
-          loginType: data.provider,
+          platform: data.provider,
         });
         localStorage.setItem("accessToken", data.accessToken);
         localStorage.setItem("refreshToken", data.refreshToken);
@@ -99,7 +99,7 @@ const PlaylistPage = () => {
         <S.GuideLineBoxLine />
         <S.PlaylistlLayout>
           {playlistBundle.map((item, index) => {
-            return <listBox item={item} key={index} />;
+            return <ListBox item={item} key={index} />;
           })}
           <S.ListPlusBox onClick={changeModalBool}>
             <S.PlusImg src={ListPlus} />

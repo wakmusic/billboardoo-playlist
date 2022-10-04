@@ -13,7 +13,7 @@ const ProfileSection = ({ userInfo }) => {
       <S.TextLayout>
         <S.NickNameText>{userInfo.name}</S.NickNameText>
         <S.TextGuideLine />
-        <S.TypeText>{userInfo.loginType}</S.TypeText>
+        <S.TypeText>{userInfo.platform}</S.TypeText>
       </S.TextLayout>
     </S.PorfileSection>
   );

@@ -150,6 +150,14 @@ export const ListBox = styled.div`
   }
 `;
 
+export const ListImg = styled.img`
+  margin-left: 25px;
+  width: 44px;
+  height: 44px;
+  background-color: #242424;
+  border-radius: 3px;
+`;
+
 export const ListTitle = styled.p`
   font-family: "Pretendard";
   font-style: normal;
@@ -158,7 +166,7 @@ export const ListTitle = styled.p`
   line-height: 26px;
   color: #000000;
   margin: 0px;
-  margin-left: 25px;
+  margin-left: 20px;
 `;
 
 export const ListGuideLine = styled.div`
