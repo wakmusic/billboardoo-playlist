@@ -24,20 +24,20 @@ export const ModalBox = styled.div`
 export const Pointer = styled.div`
   width: 8px;
   height: 8px;
-  background: #191211;
+  background: #080f34;
   border-radius: 100px;
 
   margin-top: 20px;
   margin-bottom: 20px;
 `;
 
-export const Text = styled.p`
+export const SubTitle = styled.p`
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
-  color: #242424;
+  color: #080f34;
   margin: 0px;
   margin-bottom: 30px;
 `;
@@ -78,7 +78,7 @@ export const LoginBoxText = styled.p`
   font-weight: 500;
   font-size: 17px;
   line-height: 20px;
-  color: #191211;
+  color: #080f34;
 
   margin: 0px;
   margin-left: 20px;

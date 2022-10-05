@@ -15,9 +15,8 @@ const PlaylistPage = () => {
     profile: "",
     platform: "",
   });
-  const [playlistInfo, setPlaylistInfo] = useState({});
   const [playlistBundle, setPlaylistBundle] = useState([]);
-  //{ name:"", count:"" }
+  // {key, title, creator, platform, image}
 
   useEffect(() => {
     axios.get("/api/auth").then((res) => {

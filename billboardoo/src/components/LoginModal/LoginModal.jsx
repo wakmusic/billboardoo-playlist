@@ -1,7 +1,7 @@
 import React from "react";
 import LoginBox from "./LoginBox";
-import Black_Logo from "../../assets/svgs/Black_Logo.svg";
-import Twitch from "../../assets/svgs/Twitch.svg";
+import WTVM from "../../assets/imgs/WAKTAKVERSEMUSIC_Logo.png";
+import Apple from "../../assets/svgs/Apple.svg";
 import Naver from "../../assets/svgs/Naver.svg";
 import Google from "../../assets/svgs/Google.svg";
 import * as S from "./styled";
@@ -10,14 +10,14 @@ const LoginModal = () => {
   return (
     <S.Container>
       <S.ModalBox>
-        <img src={Black_Logo} />
+        <img src={WTVM} />
         <S.Pointer />
-        <S.Text>billboardoo 계정 로그인 방법을 선택해주세요</S.Text>
-        <LoginBox name="twitch">
-          <S.BrandIconBox color="#BF94FF">
-            <img src={Twitch} />
+        <S.SubTitle>계정 로그인 방법을 선택해주세요</S.SubTitle>
+        <LoginBox name="Apple">
+          <S.BrandIconBox color="#000000">
+            <img src={Apple} />
           </S.BrandIconBox>
-          <S.LoginBoxText>트위치로 로그인하기</S.LoginBoxText>
+          <S.LoginBoxText>애플로 로그인하기</S.LoginBoxText>
         </LoginBox>
         <LoginBox name="naver">
           <S.BrandIconBox color="#00CB6D">
