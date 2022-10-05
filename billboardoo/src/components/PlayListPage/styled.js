@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TestHeader = styled.div`
   width: 100vw;
   height: 64px;
-  background: #000000;
+  background: #080F34;
 `;
 
 export const Container = styled.div`
@@ -21,7 +21,7 @@ export const PorfileSection = styled.section`
   align-items: center;
   width: 100vw;
   height: 340px;
-  background: #000000;
+  background: #080f34;
 `;
 
 export const IntroduceText = styled.p`
