@@ -1,14 +1,14 @@
 import React from "react";
 import { loginTypeInfo } from "../../common/LoginTypeInfo";
 import LoginBox from "./LoginBox";
-import WTVM from "../../assets/imgs/WAKTAKVERSEMUSIC_Logo.png";
+import WTVM from "../../assets/imgs/LoginLogo.png";
 import * as S from "./styled";
 
 const LoginModal = () => {
   return (
     <S.Container>
       <S.ModalBox>
-        <img src={WTVM} />
+        <S.Logo src={WTVM} />
         <S.Pointer />
         <S.SubTitle>계정 로그인 방법을 선택해주세요</S.SubTitle>
         <S.LoginBoxLayout>

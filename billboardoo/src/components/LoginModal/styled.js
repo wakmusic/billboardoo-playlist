@@ -21,14 +21,19 @@ export const ModalBox = styled.div`
   border-radius: 8px;
 `;
 
+export const Logo = styled.img`
+  width: 80px;
+  height: 80px;
+`;
+
 export const Pointer = styled.div`
   width: 8px;
   height: 8px;
   background: #080f34;
   border-radius: 100px;
 
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 `;
 
 export const SubTitle = styled.p`
@@ -39,7 +44,7 @@ export const SubTitle = styled.p`
   line-height: 21px;
   color: #080f34;
   margin: 0px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `;
 
 export const LoginBoxLayout = styled.div`
