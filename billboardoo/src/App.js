@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import PlusPlaylistModal from "./components/PlusPlaylistModal/PlusPlaylistModal";
-import PlaylistPage from "./components/PlaylistPage/PlayListPage";
+import MyPage from "./components/MyPage/MyPage";
 import PlusMusicPage from "./components/PlusMusicPage/PlusMusicPage";
 import SharingListModal from "./components/SharingPlaylistModal/SharingListModal";
 import LoginModal from "./components/LoginModal/LoginModal";
@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/mypage" element={<PlaylistPage />}></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/" element={<LoginModal />}></Route>
         </Routes>
       </BrowserRouter>
