@@ -1,7 +1,14 @@
 import React from "react";
+import InfoSection from "./InfoSection";
+import * as S from "./styled";
 
 const PlaylistPage = () => {
-  return <div></div>;
+  return (
+    <S.PlaylistLayout>
+      <S.TestHeader />
+      <InfoSection />
+    </S.PlaylistLayout>
+  );
 };
 
 export default PlaylistPage;
