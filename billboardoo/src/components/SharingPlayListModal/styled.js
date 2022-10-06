@@ -33,7 +33,7 @@ export const PlusButton = styled.button`
   transition: all 0.3s;
   width: 180px;
   height: 44px;
-  background: #000000;
+  background: #202f61;
   border-radius: 5px;
   border: none;
   font-family: "Spoqa Han Sans Neo";
@@ -105,6 +105,6 @@ export const ModalTitle = styled.p`
   font-weight: 600;
   font-size: 22px;
   line-height: 26px;
-  color: #000000;
+  color: #080f34;
   margin: 0px;
 `;

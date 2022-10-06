@@ -41,7 +41,7 @@ export const PlusButton = styled.button`
   font-weight: 500;
   font-size: 20px;
   line-height: 21px;
-  color: #000000;
+  color: #202F61;
 
   :hover {
     background-color: #efefef;
@@ -108,6 +108,6 @@ export const ModalTitle = styled.p`
   font-weight: 600;
   font-size: 22px;
   line-height: 26px;
-  color: #000000;
+  color: #080F34;
   margin: 0px;
 `;
