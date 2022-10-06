@@ -42,6 +42,12 @@ export const SubTitle = styled.p`
   margin-bottom: 30px;
 `;
 
+export const LoginBoxLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+`;
 export const LoginBox = styled.div`
   transition: all 0.2s;
   cursor: pointer;

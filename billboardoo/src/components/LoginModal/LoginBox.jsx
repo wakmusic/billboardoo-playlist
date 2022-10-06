@@ -1,19 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styled";
 
 const LoginBox = ({ name, children }) => {
   const onClickLogin = () => {
     if (name) {
-      window.location.href = `/auth/login/${name}`;
+      window.location.href = `https://wakmusic.xyz/auth/login/${name}`;
       localStorage.setItem("name", name);
     }
   };
 
-  return (
-    <S.LoginBox style={{ marginBottom: "20px" }} onClick={onClickLogin}>
-      {children}
-    </S.LoginBox>
-  );
+  return <S.LoginBox onClick={onClickLogin}>{children}</S.LoginBox>;
 };
 
 export default LoginBox;
