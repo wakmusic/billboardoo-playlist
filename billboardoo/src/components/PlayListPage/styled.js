@@ -110,3 +110,119 @@ export const PlaylistCrossButton = styled.button`
   color: #080f34;
   margin-left: 15px;
 `;
+
+export const MusicSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+`;
+
+export const MusicLine = styled.div`
+  width: 1200px;
+  height: 2px;
+  border-radius: 10px;
+  background-color: #242424;
+`;
+
+export const MusicSectionTitle = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  color: #242424;
+  margin: 0px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+`;
+
+export const ListBox = styled.div`
+  transition: all 0.1s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1200px;
+  height: 80px;
+  background: #ffffff;
+  border-bottom: 1px solid #e3e3e3;
+
+  :hover {
+    background-color: #f9f9fb;
+  }
+`;
+
+export const ListImg = styled.img`
+  margin-left: 25px;
+  width: 44px;
+  height: 44px;
+  background-color: #242424;
+  border-radius: 3px;
+`;
+
+export const ListTitle = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+  color: #000000;
+  margin: 0px;
+  margin-left: 5px;
+`;
+
+export const ListGuideLine = styled.div`
+  width: 1px;
+  height: 18px;
+  background: #ababab;
+  border-radius: 100px;
+`;
+
+export const ListText = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ababab;
+`;
+
+export const ListTextLayout = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const OptionBox = styled.img`
+  cursor: pointer;
+  margin-right: 25px;
+`;
+
+export const ListPlusBox = styled.div`
+  transition: all 0.1s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 1200px;
+  height: 80px;
+  background: #ffffff;
+  border-bottom: 1px solid #e3e3e3;
+
+  :hover {
+    background-color: #f9f9fb;
+  }
+`;
+
+export const PlusImg = styled.img`
+  margin-left: 25px;
+`;
+
+export const ListPlusTitle = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+  color: #000000;
+  margin: 0px;
+  margin-left: 15px;
+`;

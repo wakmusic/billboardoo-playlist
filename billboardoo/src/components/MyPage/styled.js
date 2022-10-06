@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TestHeader = styled.div`
   width: 100vw;
   height: 64px;
-  background: #080F34;
+  background: #080f34;
 `;
 
 export const Container = styled.div`
@@ -225,3 +225,4 @@ export const ListPlusTitle = styled.p`
   margin: 0px;
   margin-left: 15px;
 `;
+
