@@ -19,7 +19,7 @@ const MyPage = () => {
   // {key, title, creator, platform, image}
 
   useEffect(() => {
-    axios.get("https://wakmusic.xyz/api/auth").then((res) => {
+    axios.get("/api/auth").then((res) => {
       console.log(res);
       userInfoSetting(res.data);
       getPlaylist(res.data.id);
@@ -28,7 +28,7 @@ const MyPage = () => {
 
   const getPlaylist = (userId) => {
     axios
-      .get(`https://wakmusic.xyz/api/playlist/list/${userId}`)
+      .get(`/api/playlist/list/${userId}`)
       .then((res) => {
         setPlaylistBundle(res.data.playlist);
       })

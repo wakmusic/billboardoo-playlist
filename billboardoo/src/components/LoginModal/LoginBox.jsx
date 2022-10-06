@@ -4,7 +4,7 @@ import * as S from "./styled";
 const LoginBox = ({ name, children }) => {
   const onClickLogin = () => {
     if (name) {
-      window.location.href = `https://wakmusic.xyz/auth/login/${name}`;
+      window.location.href = `/auth/login/${name}`;
       localStorage.setItem("name", name);
     }
   };
