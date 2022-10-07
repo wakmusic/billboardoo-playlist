@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import PlusPlaylistModal from "./components/PlusPlaylistModal/PlusPlaylistModal";
 import MyPage from "./components/MyPage/MyPage";
@@ -7,12 +7,29 @@ import LoginModal from "./components/LoginModal/LoginModal";
 import "./App.css";
 
 function App() {
+  const [playlistInfo, setPlaylistInfo] = useState({
+    clientId: "",
+    playlistKey: "",
+  });
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/mypage" element={<MyPage />}></Route>
-          <Route path="/" element={<PlaylistPage />}></Route>
+          <Route
+            path="/playlist"
+            element={<PlaylistPage playlistInfo={playlistInfo} />}
+          ></Route>
+          <Route
+            path="/mypage"
+            element={
+              <MyPage
+                setPlaylistInfo={setPlaylistInfo}
+                playlistInfo={playlistInfo}
+              />
+            }
+          ></Route>
+          <Route path="/" element={<LoginModal />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

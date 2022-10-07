@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import InfoSection from "./InfoSection";
 import MusicListBox from "./MusicListBox";
 import ListPlus from "../../assets/svgs/ListPlus.svg";
 import * as S from "./styled";
+import axios from "axios";
 
-const PlaylistPage = () => {
+const PlaylistPage = ({ playlistInfo }) => {
+  useEffect(() => {
+    musicList();
+  }, []);
+
+  const musicList = () => {
+    axios
+      .get(
+        `/api/playlist/detail/${playlistInfo.playlistKey}/${playlistInfo.clientId}`
+      )
+      .then((res) => {
+        console.log(res);
+      });
+  };
+
   return (
     <S.PlaylistLayout>
       <S.TestHeader />

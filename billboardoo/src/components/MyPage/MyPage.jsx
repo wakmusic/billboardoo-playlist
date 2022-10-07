@@ -7,7 +7,7 @@ import ListPlus from "../../assets/svgs/ListPlus.svg";
 import * as S from "./styled";
 import { useEffect } from "react";
 
-const MyPage = () => {
+const MyPage = ({ setPlaylistInfo, playlistInfo }) => {
   const [modalBool, setModalBool] = useState(false);
   const [userInfo, setUserInfo] = useState({
     name: "",
@@ -20,9 +20,9 @@ const MyPage = () => {
 
   useEffect(() => {
     axios.get("/api/auth").then((res) => {
-      console.log(res);
       userInfoSetting(res.data);
       getPlaylist(res.data.id);
+      setPlaylistInfo({ ...playlistInfo, clientId: res.data.id });
     });
   }, []);
 
@@ -58,7 +58,7 @@ const MyPage = () => {
         localStorage.setItem("accessToken", data.accessToken);
         localStorage.setItem("refreshToken", data.refreshToken);
         break;
-      case "twitch":
+      case "apple":
         setUserInfo({
           name: data.display_name,
           id: data.id,
@@ -99,7 +99,14 @@ const MyPage = () => {
         <S.GuideLineBoxLine />
         <S.PlaylistlLayout>
           {playlistBundle.map((item, index) => {
-            return <ListBox item={item} clientId={userInfo.id} key={index} />;
+            return (
+              <ListBox
+                playlistInfo={playlistInfo}
+                setPlaylistInfo={setPlaylistInfo}
+                item={item}
+                key={index}
+              />
+            );
           })}
           <S.ListPlusBox onClick={changeModalBool}>
             <S.PlusImg src={ListPlus} />
