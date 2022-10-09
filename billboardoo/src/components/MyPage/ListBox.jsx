@@ -1,16 +1,23 @@
 import React from "react";
 import Option from "../../assets/svgs/Option.svg";
 import DefaultPlaylist from "../../assets/imgs/DefaultPlaylist.png";
+import axios from "axios";
 import * as S from "./styled";
 
 const ListBox = ({ item, setPlaylistInfo, playlistInfo }) => {
-  const movePlaylistPage = () => {
-    setPlaylistInfo({ ...playlistInfo, playlistKey: item.key });
-    window.location.href = "/playlist";
+  const getPlaylistPage = () => {
+    axios
+      .get(
+        `/api/playlist/detail/${playlistInfo.playlistKey}/${playlistInfo.clientId}`
+      )
+      .then((res) => {
+        console.log(res);
+        window.location.href = "/playlist";
+      });
   };
 
   return (
-    <S.ListBox onClick={movePlaylistPage}>
+    <S.ListBox onClick={getPlaylistPage}>
       <S.ListTextLayout>
         <S.ListImg src={item.image || DefaultPlaylist} />
         <S.ListTitle>{item.title}</S.ListTitle>

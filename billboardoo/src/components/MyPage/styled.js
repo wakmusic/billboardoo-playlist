@@ -225,4 +225,3 @@ export const ListPlusTitle = styled.p`
   margin: 0px;
   margin-left: 15px;
 `;
-
