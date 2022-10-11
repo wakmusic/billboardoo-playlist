@@ -1,15 +1,17 @@
 import React from "react";
 import Option from "../../assets/svgs/Option.svg";
 import DefaultPlaylist from "../../assets/imgs/DefaultPlaylist.png";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as S from "./styled";
 
 const ListBox = ({ item, setPlaylistInfo }) => {
+  let navigate = useNavigate();
+
   const getPlaylistPage = () => {
     axios.get(`/api/playlist/detail/${item.key}`).then((res) => {
       setPlaylistInfo(res.data);
-      console.log(res.data);
-      window.location.href = "/playlist";
+      navigate("/playlist");
     });
   };
 
