@@ -94,6 +94,7 @@ const MyPage = ({ setPlaylistInfo }) => {
           {playlistBundle.map((item, index) => {
             return (
               <ListBox
+                userInfo={userInfo}
                 setPlaylistInfo={setPlaylistInfo}
                 item={item}
                 key={index}

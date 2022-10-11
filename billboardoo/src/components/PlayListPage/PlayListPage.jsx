@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import InfoSection from "./InfoSection";
 import MusicListBox from "./MusicListBox";
 import ListPlus from "../../assets/svgs/ListPlus.svg";
 import * as S from "./styled";
-import axios from "axios";
 
 const PlaylistPage = ({ playlistInfo }) => {
   return (

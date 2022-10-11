@@ -135,11 +135,11 @@ export const PlaylistlLayout = styled.div`
 `;
 
 export const ListBox = styled.div`
-  transition: all 0.1s;
+  position: relative;
+  transition: all 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 80vw;
   height: 80px;
   background: #ffffff;
@@ -148,6 +148,30 @@ export const ListBox = styled.div`
   :hover {
     background-color: #f9f9fb;
   }
+`;
+
+export const ListBoxInfo = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`;
+
+export const ListDeleteButton = styled.button`
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  width: 160px;
+  height: 46px;
+  right: 40px;
+  top: 50px;
+  background: #ffffff;
+  border: 1px solid #a7a7a7;
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 18px;
+  color: #ff4545;
+  border-radius: 5px;
 `;
 
 export const ListImg = styled.img`
@@ -191,8 +215,13 @@ export const ListTextLayout = styled.div`
   gap: 10px;
 `;
 
-export const OptionBox = styled.img`
+export const OptionBox = styled.div`
   cursor: pointer;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   margin-right: 25px;
 `;
 
