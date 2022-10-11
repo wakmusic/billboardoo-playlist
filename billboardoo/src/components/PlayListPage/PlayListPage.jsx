@@ -9,7 +9,7 @@ const PlaylistPage = ({ playlistInfo }) => {
   return (
     <S.PlaylistLayout>
       <S.TestHeader />
-      <InfoSection />
+      <InfoSection playlistInfo={playlistInfo} />
       <S.MusicSection>
         <S.MusicSectionTitle>노래 목록</S.MusicSectionTitle>
         <S.MusicLine />

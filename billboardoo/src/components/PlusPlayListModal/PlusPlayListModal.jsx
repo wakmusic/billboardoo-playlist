@@ -28,7 +28,9 @@ const PlusPlaylistModal = (props) => {
       axios
         .post("/api/playlist/create", onePlaylist)
         .then((res) => {
-          console.log(res);
+          let copyPlaylistBundle = [...playlistBundle];
+          copyPlaylistBundle.push(onePlaylist);
+          setPlaylistBundle(copyPlaylistBundle);
         })
         .catch(() => {
           alert("실패하셨습니다");

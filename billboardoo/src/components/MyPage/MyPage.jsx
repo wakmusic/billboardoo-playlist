@@ -29,7 +29,7 @@ const MyPage = ({ setPlaylistInfo, playlistInfo }) => {
     axios
       .get(`/api/playlist/list/${userId}`)
       .then((res) => {
-        setPlaylistBundle(res.data.playlist)
+        setPlaylistBundle(res.data.playlist);
       })
       .catch((res) => {
         alert("오류가 발생했습니다");
@@ -73,12 +73,6 @@ const MyPage = ({ setPlaylistInfo, playlistInfo }) => {
     setModalBool(!modalBool);
   };
 
-  const appendPlaylist = () => {
-    axios.post("/api/playlist/create");
-    let copyPlaylist = [...playlistBundle];
-    copyPlaylist.push();
-  };
-
   return (
     <S.Container>
       {modalBool ? (
@@ -100,7 +94,6 @@ const MyPage = ({ setPlaylistInfo, playlistInfo }) => {
           {playlistBundle.map((item, index) => {
             return (
               <ListBox
-                playlistInfo={playlistInfo}
                 setPlaylistInfo={setPlaylistInfo}
                 item={item}
                 key={index}

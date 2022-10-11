@@ -4,10 +4,11 @@ import DefaultPlaylist from "../../assets/imgs/DefaultPlaylist.png";
 import axios from "axios";
 import * as S from "./styled";
 
-const ListBox = ({ item, setPlaylistInfo, playlistInfo }) => {
+const ListBox = ({ item, setPlaylistInfo }) => {
   const getPlaylistPage = () => {
     axios.get(`/api/playlist/detail/${item.key}`).then((res) => {
       setPlaylistInfo(res.data);
+      console.log(res.data);
       window.location.href = "/playlist";
     });
   };

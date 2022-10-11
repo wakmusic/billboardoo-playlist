@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultProfile from "../../assets/svgs/DefalutProfile.svg";
+import DefaultProfile from "../../assets/svgs/DefaultProfile.svg";
 import * as S from "./styled";
 
 const ProfileSection = ({ userInfo }) => {
