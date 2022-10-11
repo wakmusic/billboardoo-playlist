@@ -29,7 +29,7 @@ const MyPage = ({ setPlaylistInfo, playlistInfo }) => {
     axios
       .get(`/api/playlist/list/${userId}`)
       .then((res) => {
-        console.log(res);
+        setPlaylistBundle(res.data.playlist)
       })
       .catch((res) => {
         alert("오류가 발생했습니다");

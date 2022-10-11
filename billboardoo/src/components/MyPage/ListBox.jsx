@@ -6,14 +6,10 @@ import * as S from "./styled";
 
 const ListBox = ({ item, setPlaylistInfo, playlistInfo }) => {
   const getPlaylistPage = () => {
-    axios
-      .get(
-        `/api/playlist/detail/${playlistInfo.playlistKey}/${playlistInfo.clientId}`
-      )
-      .then((res) => {
-        console.log(res);
-        window.location.href = "/playlist";
-      });
+    axios.get(`/api/playlist/detail/${item.key}`).then((res) => {
+      setPlaylistInfo(res.data);
+      window.location.href = "/playlist";
+    });
   };
 
   return (
