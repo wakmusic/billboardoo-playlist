@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const DisplayFlexLow = styled.div`
   display: flex;
   align-items: center;
+  gap: 15px;
 `;
 
 export const PlaylistLayout = styled.div`
@@ -56,7 +57,6 @@ export const PlaylistPublic = styled.p`
   font-size: 20px;
   color: #8c95af;
   margin: 0px;
-  margin-left: 10px;
 `;
 
 export const PlaylistLine = styled.div`
@@ -75,7 +75,7 @@ export const PlaylistCreator = styled.p`
   margin: 0px;
 `;
 
-export const PlaylistPlayButton = styled.button`
+export const PlaylistPlayButton = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -83,32 +83,14 @@ export const PlaylistPlayButton = styled.button`
   gap: 5px;
   width: 150px;
   height: 44px;
-  background: #080f34;
+  background: ${(props) => props.background};
+  border: 2px solid ${(props) => props.borderColor};
   border-radius: 5px;
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
-  color: #ffffff;
-`;
-
-export const PlaylistCrossButton = styled.button`
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 150px;
-  height: 44px;
-  background: #ffffff;
-  border: 2px solid #080f34;
-  border-radius: 5px;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  color: #080f34;
-  margin-left: 15px;
+  color: ${(props) => props.fontColor};
 `;
 
 export const MusicSection = styled.div`

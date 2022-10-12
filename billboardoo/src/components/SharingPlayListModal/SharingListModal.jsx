@@ -2,9 +2,13 @@ import React, { useState, useRef } from "react";
 import X from "../../assets/svgs/X.svg";
 import * as S from "./styled";
 
-const SharingListModal = () => {
+const SharingListModal = ({ setModalBool }) => {
   const linkInputRef = useRef();
-  const [listLink, setListLink] = useState("sdfsd");
+  const [listLink, setListLink] = useState("");
+
+  const changeModalBool = () => {
+    setModalBool(false);
+  };
 
   const onCopyLink = () => {
     navigator.clipboard.writeText(listLink);
@@ -14,7 +18,7 @@ const SharingListModal = () => {
   return (
     <S.ModalBackGroud>
       <S.Container>
-        <S.BackImg src={X} />
+        <S.BackImg src={X} onClick={changeModalBool} />
         <S.ModalTitle>플레이리스트 공유</S.ModalTitle>
         <S.ModalPointer />
         <S.IntroduceText>
