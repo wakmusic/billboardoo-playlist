@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./styled";
 
 const LoginBox = ({ name, children }) => {
   const onClickLogin = () => {
     if (name) {
       window.location.href = `/auth/login/${name}`;
-      localStorage.setItem("name", name);
     }
   };
 

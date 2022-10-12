@@ -7,14 +7,8 @@ import ListPlus from "../../assets/svgs/ListPlus.svg";
 import * as S from "./styled";
 import { useEffect } from "react";
 
-const MyPage = ({ setPlaylistInfo }) => {
+const MyPage = ({ setPlaylistInfo, userInfo, setUserInfo }) => {
   const [modalBool, setModalBool] = useState(false);
-  const [userInfo, setUserInfo] = useState({
-    name: "",
-    id: "",
-    profile: "",
-    platform: "",
-  });
   const [playlistBundle, setPlaylistBundle] = useState([]);
   // {key, title, creator, platform, image}
 

@@ -21,7 +21,9 @@ const InfoSection = ({ playlistInfo }) => {
         <S.PlaylistInfoContainer>
           <S.DisplayFlexLow>
             <S.PlaylistTitle>{playlistInfo.title}</S.PlaylistTitle>
-            <S.PlaylistPublic>비공개</S.PlaylistPublic>
+            <S.PlaylistPublic>
+              {playlistInfo.public ? "공개" : "비공개"}
+            </S.PlaylistPublic>
           </S.DisplayFlexLow>
           <S.PlaylistLine />
           <S.PlaylistCreator>{playlistInfo.creator}</S.PlaylistCreator>

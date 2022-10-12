@@ -6,6 +6,12 @@ import LoginModal from "./components/LoginModal/LoginModal";
 import "./App.css";
 
 function App() {
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    id: "",
+    profile: "",
+    platform: "",
+  });
   const [playlistInfo, setPlaylistInfo] = useState({});
 
   return (
@@ -14,14 +20,17 @@ function App() {
         <Routes>
           <Route
             path="/playlist"
-            element={<PlaylistPage playlistInfo={playlistInfo} />}
+            element={
+              <PlaylistPage playlistInfo={playlistInfo} userInfo={userInfo} />
+            }
           ></Route>
           <Route
             path="/mypage"
             element={
               <MyPage
+                userInfo={userInfo}
+                setUserInfo={setUserInfo}
                 setPlaylistInfo={setPlaylistInfo}
-                playlistInfo={playlistInfo}
               />
             }
           ></Route>
