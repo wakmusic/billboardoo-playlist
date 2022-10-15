@@ -19,7 +19,10 @@ const ListBox = ({ item, setPlaylistInfo, userInfo }) => {
   const deletePlayList = () => {
     axios
       .post(`/api/playlist/delete/${item.key}`, { clientId: userInfo.id })
-      .then((res) => {});
+      .then((res) => {
+        alert("삭제에 성공했습니다");
+        window.location.reload();
+      });
   };
 
   const changeDeleteBool = () => {

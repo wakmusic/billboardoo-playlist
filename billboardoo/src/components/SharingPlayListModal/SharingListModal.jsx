@@ -2,9 +2,9 @@ import React, { useState, useRef } from "react";
 import X from "../../assets/svgs/X.svg";
 import * as S from "./styled";
 
-const SharingListModal = ({ setModalBool }) => {
+const SharingListModal = ({ setModalBool, playlistInfo }) => {
   const linkInputRef = useRef();
-  const [listLink, setListLink] = useState("");
+  const [listLink, setListLink] = useState(`bbrd.me/${playlistInfo.key}`);
 
   const changeModalBool = () => {
     setModalBool(false);
@@ -30,7 +30,7 @@ const SharingListModal = ({ setModalBool }) => {
           placeholder="링크가 없습니다"
         />
         <S.PlusBox>
-          <S.PlusButton onClick={onCopyLink}>생성하기</S.PlusButton>
+          <S.PlusButton onClick={onCopyLink}>복사하기</S.PlusButton>
         </S.PlusBox>
       </S.Container>
     </S.ModalBackGroud>

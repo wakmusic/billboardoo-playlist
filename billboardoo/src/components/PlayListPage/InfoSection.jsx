@@ -15,7 +15,12 @@ const InfoSection = ({ playlistInfo }) => {
 
   return (
     <>
-      {modalBool && <SharingPlaylistModal setModalBool={setModalBool} />}
+      {modalBool && (
+        <SharingPlaylistModal
+          setModalBool={setModalBool}
+          playlistInfo={playlistInfo}
+        />
+      )}
       <S.PlaylistInfoSection>
         <S.PlaylistImage src={playlistInfo.image || DefaultPlaylist} />
         <S.PlaylistInfoContainer>
