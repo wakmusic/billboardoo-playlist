@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import MyPage from "./components/MyPage/MyPage";
 import PlaylistPage from "./components/PlaylistPage/PlaylistPage";
+import ProfileSelectPage from "./components/ProfileSelectPage/ProfileSelectPage";
 import LoginModal from "./components/LoginModal/LoginModal";
 import "./App.css";
 
@@ -23,7 +24,7 @@ function App() {
             element={
               <PlaylistPage playlistInfo={playlistInfo} userInfo={userInfo} />
             }
-          ></Route>
+          />
           <Route
             path="/mypage"
             element={
@@ -33,7 +34,8 @@ function App() {
                 setPlaylistInfo={setPlaylistInfo}
               />
             }
-          ></Route>
+          />
+          <Route path="/profile-select" element={<ProfileSelectPage />} />
           <Route path="/" element={<LoginModal />}></Route>
         </Routes>
       </BrowserRouter>
