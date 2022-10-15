@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import ProfileThings from "./ProfileThings";
 import * as S from "./styled";
 
-const ProfileSelectPage = () => {
+const ProfileSelectPage = ({ userInfo }) => {
   const [profileKinds, setProfileKinds] = useState([
-    "https://beta.wakmusic.xyz/static/profile/bat.png",
-    "https://beta.wakmusic.xyz/static/profile/ddong.png",
-    "https://beta.wakmusic.xyz/static/profile/dulgi.png",
-    "https://beta.wakmusic.xyz/static/profile/gorani.png",
-    "https://beta.wakmusic.xyz/static/profile/jupock.png",
-    "https://beta.wakmusic.xyz/static/profile/panchi.png",
-    "https://beta.wakmusic.xyz/static/profile/segyun.png",
+    "bat",
+    "ddong",
+    "dulgi",
+    "gorani",
+    "jupock",
+    "panchi",
+    "segyun",
   ]);
 
   return (
@@ -22,7 +23,15 @@ const ProfileSelectPage = () => {
       <S.MainLine />
       <S.ProfileLayout>
         {profileKinds.map((item, index) => {
-          return <S.TestProfile src={item} key={index} />;
+          const link = `https://beta.wakmusic.xyz/static/profile/${item}.png`;
+          return (
+            <ProfileThings
+              userInfo={userInfo}
+              link={link}
+              item={item}
+              key={index}
+            />
+          );
         })}
       </S.ProfileLayout>
     </S.MainLayout>

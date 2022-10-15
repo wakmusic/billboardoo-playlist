@@ -64,7 +64,7 @@ export const ProfileLayout = styled.div`
   gap: 40px;
 `;
 
-export const TestProfile = styled.img`
+export const ProfileThings = styled.img`
   transition: all 0.3s;
   cursor: pointer;
   width: 200px;

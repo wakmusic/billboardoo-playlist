@@ -35,7 +35,10 @@ function App() {
               />
             }
           />
-          <Route path="/profile-select" element={<ProfileSelectPage />} />
+          <Route
+            path="/profile-select"
+            element={<ProfileSelectPage userInfo={userInfo} />}
+          />
           <Route path="/" element={<LoginModal />}></Route>
         </Routes>
       </BrowserRouter>
