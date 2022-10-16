@@ -19,6 +19,7 @@ const MyPage = ({ setPlaylistInfo, userInfo, setUserInfo }) => {
     });
   }, []);
 
+  //플레이 리스트 목록 가져오기
   const getPlaylist = (userId) => {
     axios
       .get(`/api/playlist/list/${userId}`)
@@ -30,6 +31,7 @@ const MyPage = ({ setPlaylistInfo, userInfo, setUserInfo }) => {
       });
   };
 
+  //유저 정보 가져오기 & 세팅
   const userInfoSetting = (data) => {
     switch (data.provider) {
       case "google":
@@ -63,9 +65,6 @@ const MyPage = ({ setPlaylistInfo, userInfo, setUserInfo }) => {
         break;
     }
   };
-  const changeModalBool = () => {
-    setModalBool(!modalBool);
-  };
 
   return (
     <S.Container>
@@ -74,7 +73,6 @@ const MyPage = ({ setPlaylistInfo, userInfo, setUserInfo }) => {
           userInfo={userInfo}
           playlistBundle={playlistBundle}
           setPlaylistBundle={setPlaylistBundle}
-          changeModalBool={changeModalBool}
         />
       ) : (
         <></>
@@ -90,12 +88,17 @@ const MyPage = ({ setPlaylistInfo, userInfo, setUserInfo }) => {
               <ListBox
                 userInfo={userInfo}
                 setPlaylistInfo={setPlaylistInfo}
+                setModalBool={setModalBool}
                 item={item}
                 key={index}
               />
             );
           })}
-          <S.ListPlusBox onClick={changeModalBool}>
+          <S.ListPlusBox
+            onClick={() => {
+              setModalBool(true);
+            }}
+          >
             <S.PlusImg src={ListPlus} />
             <S.ListPlusTitle>재생목록 추가</S.ListPlusTitle>
           </S.ListPlusBox>

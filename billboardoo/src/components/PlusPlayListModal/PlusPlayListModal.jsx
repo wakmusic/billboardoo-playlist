@@ -4,8 +4,7 @@ import axios from "axios";
 import * as S from "./styled";
 
 const PlusPlaylistModal = (props) => {
-  const { playlistBundle, setPlaylistBundle, changeModalBool, userInfo } =
-    props;
+  const { playlistBundle, setPlaylistBundle, userInfo, setModalBool } = props;
 
   const [onePlaylist, setOnePlaylist] = useState({
     title: "",
@@ -35,8 +34,8 @@ const PlusPlaylistModal = (props) => {
         .catch(() => {
           alert("실패하셨습니다");
         });
+      setModalBool(false);
       setOnePlaylist({ ...onePlaylist, title: "" });
-      changeModalBool();
     } else {
       alert("이름을 입력해주세요.");
     }
@@ -48,7 +47,7 @@ const PlusPlaylistModal = (props) => {
         <S.BackImg
           src={X}
           onClick={() => {
-            changeModalBool(false);
+            setModalBool(false);
           }}
         />
         <S.ModalTitle>재생목록 추가</S.ModalTitle>
