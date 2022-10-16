@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Option from "../../assets/svgs/Option.svg";
 import * as S from "./styled";
 
-const MusicListBox = () => {
+const MusicListBox = ({ item }) => {
   const [deleteBool, setDeleteBool] = useState(false);
 
   const changeDeleteBool = () => {
@@ -14,10 +14,10 @@ const MusicListBox = () => {
       {deleteBool && <S.ListDeleteButton>삭제하기</S.ListDeleteButton>}
       <S.ListBoxInfo>
         <S.ListTextLayout>
-          <S.ListImg />
-          <S.ListTitle>RE:WIND</S.ListTitle>
+          <S.ListImg src={item.image} />
+          <S.ListTitle>{item.title}</S.ListTitle>
           <S.ListGuideLine />
-          <S.ListText>이세계아이돌</S.ListText>
+          <S.ListText>{item.artist}</S.ListText>
         </S.ListTextLayout>
       </S.ListBoxInfo>
       <S.OptionBox onClick={changeDeleteBool}>

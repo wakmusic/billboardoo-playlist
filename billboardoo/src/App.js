@@ -4,6 +4,7 @@ import MyPage from "./components/MyPage/MyPage";
 import PlaylistPage from "./components/PlaylistPage/PlaylistPage";
 import ProfileSelectPage from "./components/ProfileSelectPage/ProfileSelectPage";
 import LoginModal from "./components/LoginModal/LoginModal";
+import PlusMusicPage from "./components/PlusMusicPage/PlusMusicPage";
 import "./App.css";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <PlaylistPage playlistInfo={playlistInfo} userInfo={userInfo} />
             }
           />
+          <Route path="/plus-music" element={<PlusMusicPage />} />
           <Route
             path="/mypage"
             element={
