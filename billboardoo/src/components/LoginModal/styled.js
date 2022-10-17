@@ -5,9 +5,9 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.2);
-  width: 100%;
-  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100%;
 `;
 
 export const ModalBox = styled.div`
@@ -15,36 +15,34 @@ export const ModalBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 550px;
-  height: 440px;
+  width: 472px;
+  height: 457px;
+  background-color: #ffffff;
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 10px;
+  gap: 10px;
 `;
 
-export const Logo = styled.img`
-  width: 80px;
-  height: 80px;
-`;
-
-export const Pointer = styled.div`
-  width: 8px;
-  height: 8px;
-  background: #080f34;
-  border-radius: 100px;
-
-  margin-top: 15px;
-  margin-bottom: 15px;
+export const Title = styled.h1`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+  color: #080f34;
+  margin: 0px;
 `;
 
 export const SubTitle = styled.p`
   font-family: "Pretendard";
   font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 21px;
-  color: #080f34;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #8c95af;
   margin: 0px;
-  margin-bottom: 20px;
 `;
 
 export const LoginBoxLayout = styled.div`
@@ -52,45 +50,44 @@ export const LoginBoxLayout = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  margin-top: 30px;
 `;
+
 export const LoginBox = styled.div`
+  position: relative;
   transition: all 0.2s;
   cursor: pointer;
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 390px;
-  height: 50px;
+  width: 400px;
+  height: 70px;
   border: none;
   padding: 0px;
   background: #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
+  border: 1px solid #8c95af;
+  border-radius: 10px;
   overflow: hidden;
 
   :hover {
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
+    background: #f4f4f4;
   }
 `;
 
-export const BrandIconBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: 1px solid #d8d8d8;
-
-  width: 80px;
-  height: 50px;
-  background: ${(props) => props.color};
+export const PlatformIcon = styled.img`
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 25px;
 `;
 
 export const LoginBoxText = styled.p`
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 500;
-  font-size: 17px;
-  line-height: 20px;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
   color: #080f34;
-
   margin: 0px;
-  margin-left: 20px;
 `;
