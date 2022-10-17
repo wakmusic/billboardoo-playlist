@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import X from "../../assets/svgs/X.svg";
 import axios from "axios";
 import * as S from "./styled";
 
@@ -44,23 +43,31 @@ const PlusPlaylistModal = (props) => {
   return (
     <S.ModalBackGroud>
       <S.Container>
-        <S.BackImg
-          src={X}
-          onClick={() => {
-            setModalBool(false);
-          }}
-        />
-        <S.ModalTitle>재생목록 추가</S.ModalTitle>
-        <S.ModalPointer />
-        <S.IntroduceText>새로운 재생목록 이름 입력 (20자 이하)</S.IntroduceText>
+        <S.ModalTitle>재생 목록 생성</S.ModalTitle>
+        <S.IntroduceText>새로운 재생목록의 이름을 입력해주세요</S.IntroduceText>
         <S.NameInput
           onChange={onChangePlaylistName}
           value={onePlaylist.title}
           placeholder="이름을 입력해주세요"
         />
-        <S.PlusBox>
-          <S.PlusButton onClick={postAppendPlaylist}>생성하기</S.PlusButton>
-        </S.PlusBox>
+        <S.ButtonLayout>
+          <S.MainButton
+            onClick={() => {
+              setModalBool(false);
+            }}
+            background="#D1D5DF"
+            color="#080F34"
+          >
+            취소
+          </S.MainButton>
+          <S.MainButton
+            onClick={postAppendPlaylist}
+            background="#202F61"
+            color="#ffffff"
+          >
+            생성
+          </S.MainButton>
+        </S.ButtonLayout>
       </S.Container>
     </S.ModalBackGroud>
   );

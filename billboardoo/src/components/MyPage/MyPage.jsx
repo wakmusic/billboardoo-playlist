@@ -71,6 +71,7 @@ const MyPage = ({ setPlaylistInfo, userInfo, setUserInfo }) => {
       {modalBool ? (
         <PlusPlaylistModal
           userInfo={userInfo}
+          setModalBool={setModalBool}
           playlistBundle={playlistBundle}
           setPlaylistBundle={setPlaylistBundle}
         />
