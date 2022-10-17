@@ -14,28 +14,16 @@ function App() {
     profile: "",
     platform: "",
   });
-  const [playlistInfo, setPlaylistInfo] = useState({});
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/playlist"
-            element={
-              <PlaylistPage playlistInfo={playlistInfo} userInfo={userInfo} />
-            }
-          />
+          <Route path="/playlist" element={<PlaylistPage />} />
           <Route path="/plus-music" element={<PlusMusicPage />} />
           <Route
             path="/mypage"
-            element={
-              <MyPage
-                userInfo={userInfo}
-                setUserInfo={setUserInfo}
-                setPlaylistInfo={setPlaylistInfo}
-              />
-            }
+            element={<MyPage userInfo={userInfo} setUserInfo={setUserInfo} />}
           />
           <Route
             path="/profile-select"

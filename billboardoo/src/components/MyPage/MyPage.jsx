@@ -7,7 +7,7 @@ import ListPlus from "../../assets/svgs/ListPlus.svg";
 import * as S from "./styled";
 import { useEffect } from "react";
 
-const MyPage = ({ setPlaylistInfo, userInfo, setUserInfo }) => {
+const MyPage = ({ userInfo, setUserInfo }) => {
   const [modalBool, setModalBool] = useState(false);
   const [playlistBundle, setPlaylistBundle] = useState([]);
   // {key, title, creator, platform, image}
@@ -88,7 +88,6 @@ const MyPage = ({ setPlaylistInfo, userInfo, setUserInfo }) => {
             return (
               <ListBox
                 userInfo={userInfo}
-                setPlaylistInfo={setPlaylistInfo}
                 setModalBool={setModalBool}
                 item={item}
                 key={index}

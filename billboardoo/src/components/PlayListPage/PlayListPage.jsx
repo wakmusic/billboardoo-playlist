@@ -6,19 +6,31 @@ import MusicListBox from "./MusicListBox";
 import ListPlus from "../../assets/svgs/ListPlus.svg";
 import * as S from "./styled";
 
-const PlaylistPage = ({ playlistInfo }) => {
+const PlaylistPage = () => {
+  const [playlistInfo, setPlaylistInfo] = useState({});
   const [musicList, setMusicList] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    getMusicList();
+    getPlaylistdetail();
   }, []);
 
-  const getMusicList = () => {
-    const musicKeyList = playlistInfo.songlist.join();
-    axios.get(`/api/charts/search/ids/${musicKeyList}`).then((res) => {
-      setMusicList(res.data);
+  const getPlaylistdetail = () => {
+    const playlistKey = localStorage.getItem("playlistKey");
+    axios.get(`/api/playlist/detail/${playlistKey}`).then((res) => {
+      setPlaylistInfo(res.data);
+      localStorage.setItem("playlistKey", res.data.key);
+      getMusicList(res.data.songlist);
     });
+  };
+
+  const getMusicList = (songlist) => {
+    if (songlist) {
+      const musicKeyList = songlist.join();
+      axios.get(`/api/charts/search/ids/${musicKeyList}`).then((res) => {
+        setMusicList(res.data);
+      });
+    }
   };
 
   const movePlusMusicPage = () => {
@@ -37,7 +49,7 @@ const PlaylistPage = ({ playlistInfo }) => {
           <S.ListPlusTitle>노래 추가</S.ListPlusTitle>
         </S.ListPlusBox>
         {musicList.map((item, index) => {
-          return <MusicListBox item={item} />;
+          return <MusicListBox item={item} key={index} />;
         })}
       </S.MusicSection>
     </S.PlaylistLayout>
