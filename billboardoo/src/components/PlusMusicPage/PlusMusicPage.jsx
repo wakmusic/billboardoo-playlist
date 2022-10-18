@@ -1,28 +1,31 @@
+import React from "react";
 import axios from "axios";
-import FindIcon from "../../assets/svgs/FindIcon.svg";
-import React, { useEffect, useState } from "react";
+import MusicBox from "./MusicBox";
+import FindLayout from "./FindLayout";
 import * as S from "./styled";
 
 const PlusMusicPage = () => {
   return (
     <S.Container>
       <S.testHeader />
-      <S.FindLayout>
-        <S.MainTitleLayout>
-          <S.MainSubTitle>WAKTAVERSE MUSIC</S.MainSubTitle>
-          <S.MainTitle>재생 목록 노래 추가</S.MainTitle>
-        </S.MainTitleLayout>
-        <S.MainLine />
-        <S.MainFindInputBox>
-          <S.FindInputFilter></S.FindInputFilter>
-          <S.FindInput placeholder="검색어를 입력해주세요" />
-          <S.FindIcon src={FindIcon} />
-        </S.MainFindInputBox>
-      </S.FindLayout>
+      <FindLayout />
       <S.appendMusicLayout>
         <S.MusicFilterLayout>
-          
+          <S.MusicFilter />
+          <S.UpdateText>최종 업데이트 | 2022.10.10 16:03</S.UpdateText>
         </S.MusicFilterLayout>
+        <S.MusicInfoBox>
+          <S.MusicInfoName>곡 정보</S.MusicInfoName>
+          <S.MusicInfoText color="#080F34" right="90px">
+            조회수
+          </S.MusicInfoText>
+          <S.MusicInfoText color="#080F34" right="180px">
+            출시일
+          </S.MusicInfoText>
+        </S.MusicInfoBox>
+        <MusicBox />
+        <MusicBox />
+        <MusicBox />
       </S.appendMusicLayout>
     </S.Container>
   );

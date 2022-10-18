@@ -111,3 +111,129 @@ export const MusicFilterLayout = styled.div`
   gap: 30px;
   padding-left: 30px;
 `;
+
+export const MusicFilter = styled.div`
+  width: 70px;
+  height: 40px;
+  background: #e3e5eb;
+  border-radius: 4px;
+`;
+
+export const UpdateText = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 14px;
+  color: #8c95af;
+  margin: 0px;
+`;
+
+export const MusicInfoBox = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 950px;
+  height: 40px;
+  background-color: #dadde5;
+`;
+
+export const MusicInfoName = styled.p`
+  position: absolute;
+  left: 125px;
+  width: auto;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 12px;
+  color: #080f34;
+`;
+
+export const MusicInfoText = styled.p`
+  position: absolute;
+  right: ${(props) => props.right};
+  width: 80px;
+  text-align: center;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 12px;
+  color: ${(props) => props.color};
+`;
+
+export const MusicBox = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 950px;
+  height: 80px;
+  background-color: #eeeff3;
+`;
+
+export const MusicImage = styled.img`
+  position: absolute;
+  left: 30px;
+  width: 54px;
+  height: 54px;
+  border-radius: 5px;
+  background-color: #080f34;
+`;
+
+export const MusicImageBack = styled.div`
+  position: absolute;
+  left: 60px;
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+  background: #242424;
+`;
+
+export const MusicTextLayout = styled.div`
+  position: absolute;
+  left: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+`;
+
+export const MusicName = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 17px;
+  color: #080f34;
+  margin: 0px;
+`;
+
+export const MusicArtist = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 14px;
+  color: #8c95af;
+  margin: 0px;
+`;
+
+export const MusicPlusButton = styled.div`
+  transition: all 0.2s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 30px;
+  width: 36px;
+  height: 36px;
+  border-radius: 100px;
+  background-color: #ffffff;
+  border: none;
+
+  &:hover {
+    background-color: #989898;
+  }
+`;
