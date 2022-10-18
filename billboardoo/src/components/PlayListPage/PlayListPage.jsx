@@ -25,7 +25,7 @@ const PlaylistPage = () => {
   };
 
   const getMusicList = (songlist) => {
-    if (songlist) {
+    if (songlist[0]) {
       const musicKeyList = songlist.join();
       axios.get(`/api/charts/search/ids/${musicKeyList}`).then((res) => {
         setMusicList(res.data);

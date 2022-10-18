@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const testHeader = styled.div`
   width: 100%;
-  height: 65px;
-  background-color: black;
+  height: 80px;
+  background-color: #080f34;
 `;
 
 export const Container = styled.div`
@@ -13,134 +13,101 @@ export const Container = styled.div`
   width: 100%;
   height: auto;
   padding-bottom: 75px;
+  background-color: #e3e5eb;
 `;
 
-export const MusicSection = styled.div`
-  width: fit-content;
+export const MainTitleLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 5px;
 `;
 
-export const TitleSection = styled.p`
-  text-align: start;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-  color: #000000;
-  width: 100%;
-  margin: 0px;
-  margin-top: 60px;
-  margin-left: 65px;
-`;
-
-export const SearchBar = styled.div`
-  width: 600px;
-  height: 50px;
-  background: #ffffff;
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
-  border-radius: 100px;
-  margin-top: 65px;
-  margin-bottom: 65px;
-`;
-
-export const MusicBox = styled.div`
+export const FindLayout = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
 `;
 
-export const MusicImg = styled.img`
-  width: 200px;
-  height: 200px;
-  background: #eeeeee;
+export const MainSubTitle = styled.h2`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #8c95af;
+  margin: 0px;
+`;
+
+export const MainTitle = styled.h1`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+  color: #080f34;
+  margin: 0px;
+`;
+
+export const MainLine = styled.div`
+  width: 950px;
+  height: 1px;
+  background: #8c95af;
+`;
+
+export const MainFindInputBox = styled.div`
+  display: flex;
+  align-items: center;
+  width: 480px;
+  height: 44px;
+  background: #ffffff;
+  border-radius: 6px;
+  overflow: hidden;
+`;
+
+export const FindInputFilter = styled.div`
+  width: 90px;
+  height: 44px;
+  border: 1px solid black;
+`;
+
+export const FindInput = styled.input`
+  width: 100%;
+  height: 44px;
+  text-align: center;
+  outline: none;
   border: none;
-`;
-
-export const MusicName = styled.p`
   font-family: "Pretendard";
   font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  color: #000000;
-  margin-top: 10px;
-  margin-bottom: 10px;
-`;
-
-export const MusicSinger = styled.p`
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 18px;
   line-height: 21px;
-  color: #ababab;
-  margin: 0px;
+  color: #202f61;
 `;
 
-export const ClassificationName = styled.p`
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 26px;
-  color: #000000;
-  margin: 0px;
-  margin-bottom: 25px;
+export const FindIcon = styled.img`
+  margin-right: 15px;
 `;
 
-export const MusicLayout = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 68px;
-`;
-
-export const NextButtonLeft = styled.div`
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: #ffffff;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 1000px;
-  transform: matrix(-1, 0, 0, 1, 0, 0);
-  margin-right: 25px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-`;
-
-export const NextButtonRight = styled.div`
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: #ffffff;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 1000px;
-  transform: matrix(-1, 0, 0, 1, 0, 0);
-  margin-left: 25px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-`;
-
-export const ClassificationLayout = styled.div`
+export const appendMusicLayout = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 30px;
 `;
 
-export const ArrowLayout = styled.div`
+export const MusicFilterLayout = styled.div`
   display: flex;
   align-items: center;
-  gap: 25px;
+  width: 920px;
+  height: 70px;
+  background-color: #eeeff3;
+  gap: 30px;
+  padding-left: 30px;
 `;

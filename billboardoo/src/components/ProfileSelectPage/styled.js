@@ -12,7 +12,7 @@ export const MainLayout = styled.div`
 `;
 
 export const TestHeader = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0px;
   width: 100vw;
   height: 80px;
@@ -24,6 +24,7 @@ export const TextLayout = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 5px;
+  margin-top: 50px;
 `;
 
 export const MainSubTitle = styled.h2`
