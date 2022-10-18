@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MusicPlus from "../../assets/svgs/MusicPlus.svg";
 import * as S from "./styled";
 
-const MusicBox = () => {
+const MusicBox = ({ item }) => {
+  const [date, setDate] = useState("20" + item.date.toString());
+
+  useEffect(() => {
+    setDate(date.replace(/(\d{4})(\d{2})(\d{2})/, "$1.$2.$3"));
+  }, []);
+
   return (
     <S.MusicBox>
       <S.MusicImageBack />
       <S.MusicImage />
       <S.MusicTextLayout>
-        <S.MusicName>RE:Wind</S.MusicName>
-        <S.MusicArtist>이세계 아이돌</S.MusicArtist>
+        <S.MusicName>{item.title}</S.MusicName>
+        <S.MusicArtist>{item.artist}</S.MusicArtist>
       </S.MusicTextLayout>
-      <S.MusicInfoText color="#202F61" right="90px">
-        2022.08.19
-      </S.MusicInfoText>
       <S.MusicInfoText color="#202F61" right="180px">
-        2022.08.19
+        {date}
+      </S.MusicInfoText>
+      <S.MusicInfoText color="#202F61" right="90px">
+        {item.views}
       </S.MusicInfoText>
       <S.MusicPlusButton>
         <img src={MusicPlus} />

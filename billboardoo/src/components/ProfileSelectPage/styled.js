@@ -53,7 +53,7 @@ export const MainTitle = styled.h1`
 export const MainLine = styled.div`
   width: 800px;
   height: 1px;
-  background: #8c95af;
+  background: #d2d5df;
   border-radius: 10px;
 `;
 

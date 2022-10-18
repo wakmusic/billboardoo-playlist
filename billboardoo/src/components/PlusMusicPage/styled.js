@@ -11,6 +11,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  min-height: 100vh;
   height: auto;
   padding-bottom: 75px;
   background-color: #e3e5eb;
@@ -56,7 +57,7 @@ export const MainTitle = styled.h1`
 export const MainLine = styled.div`
   width: 950px;
   height: 1px;
-  background: #8c95af;
+  background: #d2d5df;
 `;
 
 export const MainFindInputBox = styled.div`
@@ -183,9 +184,9 @@ export const MusicImage = styled.img`
 
 export const MusicImageBack = styled.div`
   position: absolute;
-  left: 60px;
-  width: 44px;
-  height: 44px;
+  left: 62px;
+  width: 38px;
+  height: 38px;
   border-radius: 100px;
   background: #242424;
 `;

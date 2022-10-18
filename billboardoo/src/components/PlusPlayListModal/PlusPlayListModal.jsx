@@ -35,6 +35,7 @@ const PlusPlaylistModal = (props) => {
         });
       setModalBool(false);
       setOnePlaylist({ ...onePlaylist, title: "" });
+      window.location.reload();
     } else {
       alert("이름을 입력해주세요.");
     }

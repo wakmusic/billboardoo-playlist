@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MusicBox from "./MusicBox";
 import FindLayout from "./FindLayout";
 import * as S from "./styled";
 
 const PlusMusicPage = () => {
+  const [musicList, setMusicList] = useState([]);
+
+  useEffect(() => {
+    getChartMusic();
+  }, []);
+
+  const getChartMusic = () => {
+    axios
+      .get("/api/charts/weekly", {
+        params: {
+          limit: 10,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setMusicList(res.data);
+      });
+  };
+
   return (
     <S.Container>
       <S.testHeader />
@@ -23,9 +42,9 @@ const PlusMusicPage = () => {
             출시일
           </S.MusicInfoText>
         </S.MusicInfoBox>
-        <MusicBox />
-        <MusicBox />
-        <MusicBox />
+        {musicList.map((item, index) => {
+          return <MusicBox item={item} key={index} />;
+        })}
       </S.appendMusicLayout>
     </S.Container>
   );
