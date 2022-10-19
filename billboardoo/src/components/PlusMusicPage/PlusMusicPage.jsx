@@ -10,11 +10,21 @@ const PlusMusicPage = () => {
     sort: "popular",
     keyword: "",
   });
+  const [playlistInfo, setPlaylistInfo] = useState({});
   const [musicList, setMusicList] = useState([]);
 
   useEffect(() => {
     getChartMusic();
+    getPlaylistdetail();
   }, []);
+
+  const getPlaylistdetail = () => {
+    const playlistKey = localStorage.getItem("playlistKey");
+    axios.get(`/api/playlist/detail/${playlistKey}`).then((res) => {
+      setPlaylistInfo(res.data);
+      localStorage.setItem("playlistKey", res.data.key);
+    });
+  };
 
   //검색 키워드 변경 함수
   const onChangeKeyword = (e) => {
@@ -69,6 +79,7 @@ const PlusMusicPage = () => {
         {musicList.map((item, index) => {
           return (
             <MusicBox
+              playlistInfo={playlistInfo}
               item={item}
               key={index}
               color={index % 2 == 0 ? "#E4E6EC" : "#EEEFF3"}

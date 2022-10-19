@@ -1,8 +1,25 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MusicPlus from "../../assets/svgs/MusicPlus.svg";
 import * as S from "./styled";
 
-const MusicBox = ({ item, color }) => {
+const MusicBox = ({ item, color, playlistInfo }) => {
+  const appendMusic = () => {
+    const clientId = localStorage.getItem("clientId");
+    const playlistKey = localStorage.getItem("playlistKey");
+    axios
+      .post(`/api/playlist/edit/${playlistKey}`, {
+        title: playlistInfo.title,
+        image: playlistInfo.image,
+        songlist: playlistInfo.songlist.push(item.id),
+        public: playlistInfo.public,
+        clientId: clientId,
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  };
+
   return (
     <S.MusicBox color={color}>
       <S.MusicImageBack />
@@ -20,7 +37,7 @@ const MusicBox = ({ item, color }) => {
       <S.MusicInfoText color="#202F61" right="90px">
         {item.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
       </S.MusicInfoText>
-      <S.MusicPlusButton>
+      <S.MusicPlusButton onClick={appendMusic}>
         <img src={MusicPlus} />
       </S.MusicPlusButton>
     </S.MusicBox>
