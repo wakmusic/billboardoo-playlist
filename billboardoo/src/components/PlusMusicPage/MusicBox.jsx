@@ -4,14 +4,12 @@ import MusicPlus from "../../assets/svgs/MusicPlus.svg";
 import * as S from "./styled";
 
 const MusicBox = ({ item, color, playlistInfo, setPlaylistInfo }) => {
-  const playlistKey = localStorage.getItem("playlistKey");
-
   const appendMusic = () => {
     let copySonglist = [...playlistInfo.songlist];
     copySonglist.push(item.id);
     setPlaylistInfo({ ...playlistInfo, songlist: copySonglist });
     axios
-      .post(`/api/playlist/edit/${playlistKey}`, {
+      .post(`/api/playlist/edit/${playlistInfo.key}`, {
         title: playlistInfo.title,
         image: playlistInfo.image,
         songlist: copySonglist,
@@ -19,7 +17,7 @@ const MusicBox = ({ item, color, playlistInfo, setPlaylistInfo }) => {
         clientId: playlistInfo.clientId,
       })
       .then((res) => {
-        console.log(res);
+        alert("노래 추가에 성공했습니다");
       });
   };
 

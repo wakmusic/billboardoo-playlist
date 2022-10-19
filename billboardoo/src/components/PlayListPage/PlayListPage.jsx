@@ -57,7 +57,14 @@ const PlaylistPage = () => {
           <S.ListPlusTitle>노래 추가</S.ListPlusTitle>
         </S.ListPlusBox>
         {musicList.map((item, index) => {
-          return <MusicListBox item={item} key={index} />;
+          return (
+            <MusicListBox
+              playlistInfo={playlistInfo}
+              setPlaylistInfo={setPlaylistInfo}
+              item={item}
+              key={index}
+            />
+          );
         })}
       </S.MusicSection>
     </S.PlaylistLayout>

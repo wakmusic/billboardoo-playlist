@@ -1,9 +1,28 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Option from "../../assets/svgs/Option.svg";
 import * as S from "./styled";
 
-const MusicListBox = ({ item }) => {
+const MusicListBox = ({ item, playlistInfo, setPlaylistInfo }) => {
   const [deleteBool, setDeleteBool] = useState(false);
+
+  const deleteMusic = () => {
+    let copySonglist = playlistInfo.songlist.filter((x) => {
+      return x != item.id;
+    });
+    setPlaylistInfo({ ...playlistInfo, songlist: copySonglist });
+    axios
+      .post(`/api/playlist/edit/${playlistInfo.key}`, {
+        title: playlistInfo.title,
+        image: playlistInfo.image,
+        songlist: copySonglist,
+        public: playlistInfo.public,
+        clientId: playlistInfo.clientId,
+      })
+      .then((res) => {
+        alert("삭제에 성공했습니다");
+      });
+  };
 
   const changeDeleteBool = () => {
     setDeleteBool(!deleteBool);
@@ -11,7 +30,9 @@ const MusicListBox = ({ item }) => {
 
   return (
     <S.ListBox>
-      {deleteBool && <S.ListDeleteButton>삭제하기</S.ListDeleteButton>}
+      {deleteBool && (
+        <S.ListDeleteButton onClick={deleteMusic}>삭제하기</S.ListDeleteButton>
+      )}
       <S.ListBoxInfo>
         <S.ListTextLayout>
           <S.ListImg src={item.image} />
