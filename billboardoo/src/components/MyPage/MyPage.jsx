@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import ProfileSection from "./ProfileSection";
 import ListBox from "./ListBox";
 import PlusPlaylistModal from "../PlusPlaylistModal/PlusPlaylistModal";
@@ -8,6 +9,7 @@ import * as S from "./styled";
 import { useEffect } from "react";
 
 const MyPage = ({ userInfo, setUserInfo }) => {
+  const navigate = useNavigate();
   const [modalBool, setModalBool] = useState(false);
   const [playlistBundle, setPlaylistBundle] = useState([]);
   // {key, title, creator, platform, image}
@@ -16,6 +18,9 @@ const MyPage = ({ userInfo, setUserInfo }) => {
     axios.get("/api/auth").then((res) => {
       userInfoSetting(res.data);
       getPlaylist(res.data.id);
+      if (res.data.first) {
+        navigate("/profile-select");
+      }
     });
   }, []);
 

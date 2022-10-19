@@ -12,6 +12,7 @@ export const PlaylistLayout = styled.div`
   align-items: center;
   width: 100vw;
   min-height: 100vh;
+  padding-bottom: 80px;
 `;
 
 export const TestHeader = styled.div`

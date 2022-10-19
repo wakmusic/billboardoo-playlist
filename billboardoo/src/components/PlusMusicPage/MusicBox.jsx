@@ -4,8 +4,9 @@ import MusicPlus from "../../assets/svgs/MusicPlus.svg";
 import * as S from "./styled";
 
 const MusicBox = ({ item, color, playlistInfo, setPlaylistInfo }) => {
+  const playlistKey = localStorage.getItem("playlistKey");
+  
   const appendMusic = () => {
-    const playlistKey = localStorage.getItem("playlistKey");
     let copySonglist = [...playlistInfo.songlist];
     copySonglist.push(item.id);
     setPlaylistInfo(copySonglist);

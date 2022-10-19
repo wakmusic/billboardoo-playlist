@@ -15,6 +15,7 @@ const PlaylistPage = () => {
     getPlaylistdetail();
   }, []);
 
+  //플레이 리스트 상세정보 가져오는 함수
   const getPlaylistdetail = () => {
     const playlistKey = localStorage.getItem("playlistKey");
     axios.get(`/api/playlist/detail/${playlistKey}`).then((res) => {
@@ -25,11 +26,18 @@ const PlaylistPage = () => {
   };
 
   const getMusicList = (songlist) => {
-    if (songlist[0]) {
+    if (songlist != []) {
       const musicKeyList = songlist.join();
-      axios.get(`/api/charts/search/ids/${musicKeyList}`).then((res) => {
-        setMusicList(res.data);
-      });
+      axios
+        .get(`/api/search`, {
+          params: {
+            type: "ids",
+            keyword: musicKeyList,
+          },
+        })
+        .then((res) => {
+          setMusicList(res.data);
+        });
     }
   };
 
