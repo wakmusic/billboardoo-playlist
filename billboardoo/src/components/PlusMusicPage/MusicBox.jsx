@@ -5,11 +5,11 @@ import * as S from "./styled";
 
 const MusicBox = ({ item, color, playlistInfo, setPlaylistInfo }) => {
   const playlistKey = localStorage.getItem("playlistKey");
-  
+
   const appendMusic = () => {
     let copySonglist = [...playlistInfo.songlist];
     copySonglist.push(item.id);
-    setPlaylistInfo(copySonglist);
+    setPlaylistInfo({ ...playlistInfo, songlist: copySonglist });
     axios
       .post(`/api/playlist/edit/${playlistKey}`, {
         title: playlistInfo.title,
