@@ -6,6 +6,7 @@ import * as S from "./styled";
 const MusicListBox = ({ item, playlistInfo, setPlaylistInfo }) => {
   const [deleteBool, setDeleteBool] = useState(false);
 
+  //플레이 리스트 내에 노래 삭제 함수
   const deleteMusic = () => {
     let copySonglist = playlistInfo.songlist.filter((x) => {
       return x != item.id;
