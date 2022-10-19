@@ -5,12 +5,37 @@ import FindLayout from "./FindLayout";
 import * as S from "./styled";
 
 const PlusMusicPage = () => {
+  const [findMusicParams, setFindMusicParams] = useState({
+    type: "title",
+    sort: "popular",
+    keyword: "",
+  });
   const [musicList, setMusicList] = useState([]);
 
   useEffect(() => {
     getChartMusic();
   }, []);
 
+  //검색 키워드 변경 함수
+  const onChangeKeyword = (e) => {
+    const { value } = e.target;
+    setFindMusicParams({ ...findMusicParams, keyword: value });
+  };
+
+  //음악 검색 함수
+  const findMusic = (e) => {
+    if (e.key == "Enter" && findMusicParams.keyword) {
+      axios
+        .get("/api/search", {
+          params: findMusicParams,
+        })
+        .then((res) => {
+          setMusicList(res.data);
+        });
+    }
+  };
+
+  //차트 가져오는 함수
   const getChartMusic = () => {
     axios
       .get("/api/charts/weekly", {
@@ -19,7 +44,6 @@ const PlusMusicPage = () => {
         },
       })
       .then((res) => {
-        console.log(res.data);
         setMusicList(res.data);
       });
   };
@@ -27,7 +51,7 @@ const PlusMusicPage = () => {
   return (
     <S.Container>
       <S.testHeader />
-      <FindLayout />
+      <FindLayout findMusic={findMusic} onChangeKeyword={onChangeKeyword} />
       <S.appendMusicLayout>
         <S.MusicFilterLayout>
           <S.MusicFilter />
@@ -43,7 +67,13 @@ const PlusMusicPage = () => {
           </S.MusicInfoText>
         </S.MusicInfoBox>
         {musicList.map((item, index) => {
-          return <MusicBox item={item} key={index} />;
+          return (
+            <MusicBox
+              item={item}
+              key={index}
+              color={index % 2 == 0 ? "#E4E6EC" : "#EEEFF3"}
+            />
+          );
         })}
       </S.appendMusicLayout>
     </S.Container>

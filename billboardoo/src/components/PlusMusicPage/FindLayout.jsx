@@ -2,7 +2,7 @@ import React from "react";
 import FindIcon from "../../assets/svgs/FindIcon.svg";
 import * as S from "./styled";
 
-const FindLayout = () => {
+const FindLayout = ({ findMusic, onChangeKeyword }) => {
   return (
     <S.FindLayout>
       <S.MainTitleLayout>
@@ -12,7 +12,11 @@ const FindLayout = () => {
       <S.MainLine />
       <S.MainFindInputBox>
         <S.FindInputFilter></S.FindInputFilter>
-        <S.FindInput placeholder="검색어를 입력해주세요" />
+        <S.FindInput
+          onKeyPress={findMusic}
+          onChange={onChangeKeyword}
+          placeholder="검색어를 입력해주세요"
+        />
         <S.FindIcon src={FindIcon} />
       </S.MainFindInputBox>
     </S.FindLayout>

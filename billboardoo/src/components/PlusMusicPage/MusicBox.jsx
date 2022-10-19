@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import MusicPlus from "../../assets/svgs/MusicPlus.svg";
 import * as S from "./styled";
 
-const MusicBox = ({ item }) => {
+const MusicBox = ({ item, color }) => {
   return (
-    <S.MusicBox>
+    <S.MusicBox color={color}>
       <S.MusicImageBack />
       <S.MusicImage />
       <S.MusicTextLayout>

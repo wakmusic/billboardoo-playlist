@@ -170,7 +170,7 @@ export const MusicBox = styled.div`
   align-items: center;
   width: 950px;
   height: 80px;
-  background-color: #eeeff3;
+  background-color: ${(props) => props.color};
 `;
 
 export const MusicImage = styled.img`
