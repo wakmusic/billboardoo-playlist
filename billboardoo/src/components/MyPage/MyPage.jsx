@@ -41,7 +41,6 @@ const MyPage = ({ userInfo, setUserInfo }) => {
           profile: data.photos[0].value,
           platform: data.provider,
         });
-        localStorage.setItem("clientId", data.id);
         break;
       case "naver":
         setUserInfo({
@@ -50,7 +49,6 @@ const MyPage = ({ userInfo, setUserInfo }) => {
           profile: data.profile_image,
           platform: data.provider,
         });
-        localStorage.setItem("clientId", data.id);
         break;
       case "apple":
         setUserInfo({
@@ -59,7 +57,6 @@ const MyPage = ({ userInfo, setUserInfo }) => {
           profile: data.profile_image_url,
           platform: data.provider,
         });
-        localStorage.setItem("clientId", data.id);
         break;
     }
   };

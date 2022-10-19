@@ -79,6 +79,7 @@ const PlusMusicPage = () => {
         {musicList.map((item, index) => {
           return (
             <MusicBox
+              setPlaylistInfo={setPlaylistInfo}
               playlistInfo={playlistInfo}
               item={item}
               key={index}

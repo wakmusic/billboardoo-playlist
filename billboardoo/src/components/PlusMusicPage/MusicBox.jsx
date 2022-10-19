@@ -3,17 +3,19 @@ import React, { useEffect, useState } from "react";
 import MusicPlus from "../../assets/svgs/MusicPlus.svg";
 import * as S from "./styled";
 
-const MusicBox = ({ item, color, playlistInfo }) => {
+const MusicBox = ({ item, color, playlistInfo, setPlaylistInfo }) => {
   const appendMusic = () => {
-    const clientId = localStorage.getItem("clientId");
     const playlistKey = localStorage.getItem("playlistKey");
+    let copySonglist = [...playlistInfo.songlist];
+    copySonglist.push(item.id);
+    setPlaylistInfo(copySonglist);
     axios
       .post(`/api/playlist/edit/${playlistKey}`, {
         title: playlistInfo.title,
         image: playlistInfo.image,
-        songlist: playlistInfo.songlist.push(item.id),
+        songlist: copySonglist,
         public: playlistInfo.public,
-        clientId: clientId,
+        clientId: playlistInfo.clientId,
       })
       .then((res) => {
         console.log(res);
