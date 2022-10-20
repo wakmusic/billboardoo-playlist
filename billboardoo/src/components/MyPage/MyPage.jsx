@@ -44,7 +44,7 @@ const MyPage = ({ userInfo, setUserInfo }) => {
         setUserInfo({
           name: data.displayName,
           id: data.id,
-          profile: data.photos[0].value,
+          profile: data.profile,
           platform: data.provider,
         });
         break;
@@ -52,7 +52,7 @@ const MyPage = ({ userInfo, setUserInfo }) => {
         setUserInfo({
           name: data.displayName,
           id: data.id,
-          profile: data.profile_image,
+          profile: data.profile,
           platform: data.provider,
         });
         break;
@@ -60,7 +60,7 @@ const MyPage = ({ userInfo, setUserInfo }) => {
         setUserInfo({
           name: data.display_name,
           id: data.id,
-          profile: data.profile_image_url,
+          profile: data.profile,
           platform: data.provider,
         });
         break;
@@ -80,7 +80,10 @@ const MyPage = ({ userInfo, setUserInfo }) => {
         <></>
       )}
       <S.TestHeader />
-      <PageInTroduce pageTitle="MYPAGE"/>
+      <PageInTroduce pageTitle="MYPAGE" />
+      <S.InfoLayout>
+        <ProfileSection userInfo={userInfo}/>
+      </S.InfoLayout>
     </S.Container>
   );
 };
