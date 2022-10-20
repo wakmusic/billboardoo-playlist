@@ -36,26 +36,7 @@ const ListBox = ({ item, userInfo }) => {
     setDeleteBool(!deleteBool);
   };
 
-  return (
-    <S.ListBox>
-      {deleteBool && (
-        <S.ListDeleteButton onClick={deletePlayList}>
-          삭제하기
-        </S.ListDeleteButton>
-      )}
-      <S.ListBoxInfo onClick={movePlaylistdetail}>
-        <S.ListTextLayout>
-          <S.ListImg src={item.image || DefaultPlaylist} />
-          <S.ListTitle>{item.title}</S.ListTitle>
-          <S.ListGuideLine />
-          <S.ListText>{item.creator}</S.ListText>
-        </S.ListTextLayout>
-      </S.ListBoxInfo>
-      <S.OptionBox onClick={changeDeleteBool}>
-        <img src={Option} />
-      </S.OptionBox>
-    </S.ListBox>
-  );
+  return <></>;
 };
 
 export default ListBox;

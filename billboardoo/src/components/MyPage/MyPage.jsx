@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import PageInTroduce from "../PageItroduceBox/PageItroduceBox";
 import ProfileSection from "./ProfileSection";
 import ListBox from "./ListBox";
 import PlusPlaylistModal from "../PlusPlaylistModal/PlusPlaylistModal";
@@ -79,31 +80,7 @@ const MyPage = ({ userInfo, setUserInfo }) => {
         <></>
       )}
       <S.TestHeader />
-      <ProfileSection userInfo={userInfo} />
-      <S.GuideLineBox>
-        <S.GuideLineText>재생목록</S.GuideLineText>
-        <S.GuideLineBoxLine />
-        <S.PlaylistlLayout>
-          {playlistBundle.map((item, index) => {
-            return (
-              <ListBox
-                userInfo={userInfo}
-                setModalBool={setModalBool}
-                item={item}
-                key={index}
-              />
-            );
-          })}
-          <S.ListPlusBox
-            onClick={() => {
-              setModalBool(true);
-            }}
-          >
-            <S.PlusImg src={ListPlus} />
-            <S.ListPlusTitle>재생목록 추가</S.ListPlusTitle>
-          </S.ListPlusBox>
-        </S.PlaylistlLayout>
-      </S.GuideLineBox>
+      <PageInTroduce pageTitle="MYPAGE"/>
     </S.Container>
   );
 };

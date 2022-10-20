@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import FindIcon from "../../assets/svgs/FindIcon.svg";
 import MusicBox from "./MusicBox";
-import FindLayout from "./FindLayout";
+import PageItroduceBox from "../PageItroduceBox/PageItroduceBox";
 import * as S from "./styled";
 
 const PlusMusicPage = () => {
@@ -61,7 +62,16 @@ const PlusMusicPage = () => {
   return (
     <S.Container>
       <S.testHeader />
-      <FindLayout findMusic={findMusic} onChangeKeyword={onChangeKeyword} />
+      <PageItroduceBox pageTitle="재생 목록 노래 추가" />
+      <S.MainFindInputBox>
+        <S.FindInputFilter></S.FindInputFilter>
+        <S.FindInput
+          onKeyPress={findMusic}
+          onChange={onChangeKeyword}
+          placeholder="검색어를 입력해주세요"
+        />
+        <S.FindIcon src={FindIcon} />
+      </S.MainFindInputBox>
       <S.appendMusicLayout>
         <S.MusicFilterLayout>
           <S.MusicFilter />
