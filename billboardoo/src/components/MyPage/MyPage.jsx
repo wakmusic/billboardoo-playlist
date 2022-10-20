@@ -3,9 +3,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import PageInTroduce from "../PageItroduceBox/PageItroduceBox";
 import ProfileSection from "./ProfileSection";
+import PlaylistSection from "./PlaylistSection";
 import ListBox from "./ListBox";
 import PlusPlaylistModal from "../PlusPlaylistModal/PlusPlaylistModal";
-import ListPlus from "../../assets/svgs/ListPlus.svg";
 import * as S from "./styled";
 import { useEffect } from "react";
 
@@ -82,7 +82,8 @@ const MyPage = ({ userInfo, setUserInfo }) => {
       <S.TestHeader />
       <PageInTroduce pageTitle="MYPAGE" />
       <S.InfoLayout>
-        <ProfileSection userInfo={userInfo}/>
+        <ProfileSection userInfo={userInfo} />
+        <PlaylistSection />
       </S.InfoLayout>
     </S.Container>
   );

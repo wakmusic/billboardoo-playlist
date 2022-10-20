@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import DefaultProfile from "../../assets/svgs/DefaultProfile.svg";
+import ProfileSetting from "../../assets/svgs/ProfileSetting.svg";
+import { useNavigate } from "react-router-dom";
 import * as S from "./styled";
 
 const ProfileSection = ({ userInfo }) => {
+  const navigate = useNavigate();
   const [platformText, setPlatformText] = useState("");
   const profileURL = `https://beta.wakmusic.xyz/static/profile/${userInfo.profile}.png`;
 
@@ -24,6 +26,10 @@ const ProfileSection = ({ userInfo }) => {
     }
   };
 
+  const onClickProfileSelect = () => {
+    navigate("/profile-select");
+  };
+
   const onClickLogout = () => {
     window.location.href = "/";
     localStorage.removeItem("playlistKey");
@@ -31,6 +37,10 @@ const ProfileSection = ({ userInfo }) => {
 
   return (
     <S.ProfileBox>
+      <S.ProfileSettingIcon
+        onClick={onClickProfileSelect}
+        src={ProfileSetting}
+      />
       <S.ProfileImg src={profileURL} />
       <S.ProfileName>{userInfo.name}</S.ProfileName>
       <S.LoginPlatform>{platformText}</S.LoginPlatform>
