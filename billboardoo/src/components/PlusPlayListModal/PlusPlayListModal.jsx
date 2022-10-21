@@ -3,7 +3,7 @@ import axios from "axios";
 import * as S from "./styled";
 
 const PlusPlaylistModal = (props) => {
-  const { playlistBundle, setPlaylistBundle, userInfo, setPlusModalBool } = props;
+  const { userInfo, setPlusModalBool } = props;
 
   const [onePlaylist, setOnePlaylist] = useState({
     title: "",
@@ -23,17 +23,10 @@ const PlusPlaylistModal = (props) => {
   //플레이리스트 추가 요청 API
   const postAppendPlaylist = () => {
     if (onePlaylist.title) {
-      axios
-        .post("/api/playlist/create", onePlaylist)
-        .then((res) => {
-          let copyPlaylistBundle = [...playlistBundle];
-          copyPlaylistBundle.push(onePlaylist);
-          setPlaylistBundle(copyPlaylistBundle);
-        })
-        .catch(() => {
-          alert("실패하셨습니다");
-        });
-        setPlusModalBool(false);
+      axios.post("/api/playlist/create", onePlaylist).catch(() => {
+        alert("실패하셨습니다");
+      });
+      setPlusModalBool(false);
       setOnePlaylist({ ...onePlaylist, title: "" });
       window.location.reload();
     } else {

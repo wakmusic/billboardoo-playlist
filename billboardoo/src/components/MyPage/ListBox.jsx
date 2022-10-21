@@ -14,17 +14,9 @@ const ListBox = ({ item, userInfo, background, setDeleteModalBool }) => {
     navigate("/playlist");
   };
 
-  const deletePlayList = () => {
-    axios
-      .post(`/api/playlist/delete/${item.key}`, { clientId: userInfo.id })
-      .then((res) => {
-        alert("삭제에 성공했습니다");
-        window.location.reload();
-      });
-  };
-
   const changeDeleteBool = () => {
     setDeleteModalBool(true);
+    localStorage.setItem("playlistKey", item.key);
   };
 
   return (

@@ -14,6 +14,7 @@ export const Container = styled.div`
   gap: 40px;
   width: 100vw;
   min-height: 100vh;
+  padding-bottom: 75px;
 `;
 
 export const InfoLayout = styled.div`

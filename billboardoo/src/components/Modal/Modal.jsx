@@ -16,7 +16,11 @@ const Modal = (props) => {
           >
             {leftText}
           </S.MainButton>
-          <S.MainButton background="#202F61" color="#ffffff">
+          <S.MainButton
+            onClick={rightEvent}
+            background="#202F61"
+            color="#ffffff"
+          >
             {rightText}
           </S.MainButton>
         </S.ButtonLayout>

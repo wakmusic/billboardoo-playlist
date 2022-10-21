@@ -40,6 +40,18 @@ const MyPage = ({ userInfo, setUserInfo }) => {
       });
   };
 
+  //플레이 리스트 삭제 함수
+  const deletePlayList = () => {
+    axios
+      .post(`/api/playlist/delete/${localStorage.getItem("playlistKey")}`, {
+        clientId: userInfo.id,
+      })
+      .then((res) => {
+        alert("삭제에 성공했습니다");
+        window.location.reload();
+      });
+  };
+
   //유저 로그인 플랫폼 표시 글 세팅 함수
   const platformSelect = (platform) => {
     switch (platform) {
@@ -87,15 +99,11 @@ const MyPage = ({ userInfo, setUserInfo }) => {
 
   return (
     <S.Container>
-      {plusModalBool ? (
+      {plusModalBool && (
         <PlusPlaylistModal
           userInfo={userInfo}
           setPlusModalBool={setPlusModalBool}
-          playlistBundle={playlistBundle}
-          setPlaylistBundle={setPlaylistBundle}
         />
-      ) : (
-        <></>
       )}
       {deleteModalBool ? (
         <Modal
@@ -104,6 +112,7 @@ const MyPage = ({ userInfo, setUserInfo }) => {
             setDeleteModalBool(false);
           }}
           rightText="삭제"
+          rightEvent={deletePlayList}
         >
           <S.ModalTextLayout>
             <S.ModalTitle>삭제</S.ModalTitle>
