@@ -3,9 +3,14 @@ import ListBox from "./ListBox";
 import ListPlus from "../../assets/svgs/ListPlus.svg";
 import * as S from "./styled";
 
-const PlaylistSection = ({ playlistBundle, userInfo, setModalBool }) => {
+const PlaylistSection = ({
+  playlistBundle,
+  userInfo,
+  setPlusModalBool,
+  setDeleteModalBool,
+}) => {
   const changeModal = () => {
-    setModalBool(true);
+    setPlusModalBool(true);
   };
 
   return (
@@ -24,6 +29,7 @@ const PlaylistSection = ({ playlistBundle, userInfo, setModalBool }) => {
       {playlistBundle.map((item, index) => {
         return (
           <ListBox
+            setDeleteModalBool={setDeleteModalBool}
             item={item}
             key={index}
             userInfo={userInfo}

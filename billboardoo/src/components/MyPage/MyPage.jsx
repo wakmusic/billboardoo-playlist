@@ -4,14 +4,15 @@ import { useNavigate } from "react-router-dom";
 import PageInTroduce from "../PageItroduceBox/PageItroduceBox";
 import ProfileSection from "./ProfileSection";
 import PlaylistSection from "./PlaylistSection";
-import ListBox from "./ListBox";
+import Modal from "../Modal/Modal";
 import PlusPlaylistModal from "../PlusPlaylistModal/PlusPlaylistModal";
 import * as S from "./styled";
 import { useEffect } from "react";
 
 const MyPage = ({ userInfo, setUserInfo }) => {
   const navigate = useNavigate();
-  const [modalBool, setModalBool] = useState(false);
+  const [plusModalBool, setPlusModalBool] = useState(false);
+  const [deleteModalBool, setDeleteModalBool] = useState(false);
   const [playlistBundle, setPlaylistBundle] = useState([]);
   // {key, title, creator, platform, image}
 
@@ -69,23 +70,25 @@ const MyPage = ({ userInfo, setUserInfo }) => {
 
   return (
     <S.Container>
-      {modalBool ? (
+      {plusModalBool ? (
         <PlusPlaylistModal
           userInfo={userInfo}
-          setModalBool={setModalBool}
+          setPlusModalBool={setPlusModalBool}
           playlistBundle={playlistBundle}
           setPlaylistBundle={setPlaylistBundle}
         />
       ) : (
         <></>
       )}
+      {deleteModalBool ? <Modal /> : <></>}
       <S.TestHeader />
       <PageInTroduce pageTitle="MYPAGE" />
       <S.InfoLayout>
         <ProfileSection userInfo={userInfo} />
         <PlaylistSection
-          setModalBool={setModalBool}
+          setPlusModalBool={setPlusModalBool}
           playlistBundle={playlistBundle}
+          setDeleteModalBool={setDeleteModalBool}
           userInfo={userInfo}
         />
       </S.InfoLayout>

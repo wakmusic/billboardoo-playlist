@@ -3,7 +3,7 @@ import axios from "axios";
 import * as S from "./styled";
 
 const PlusPlaylistModal = (props) => {
-  const { playlistBundle, setPlaylistBundle, userInfo, setModalBool } = props;
+  const { playlistBundle, setPlaylistBundle, userInfo, setPlusModalBool } = props;
 
   const [onePlaylist, setOnePlaylist] = useState({
     title: "",
@@ -33,7 +33,7 @@ const PlusPlaylistModal = (props) => {
         .catch(() => {
           alert("실패하셨습니다");
         });
-      setModalBool(false);
+        setPlusModalBool(false);
       setOnePlaylist({ ...onePlaylist, title: "" });
       window.location.reload();
     } else {
@@ -54,7 +54,7 @@ const PlusPlaylistModal = (props) => {
         <S.ButtonLayout>
           <S.MainButton
             onClick={() => {
-              setModalBool(false);
+              setPlusModalBool(false);
             }}
             background="#D1D5DF"
             color="#080F34"

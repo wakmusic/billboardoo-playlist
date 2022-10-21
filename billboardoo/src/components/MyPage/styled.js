@@ -224,7 +224,6 @@ export const PL_Creator = styled.p`
 export const PL_DeleteButton = styled.button`
   cursor: pointer;
   position: absolute;
-  z-index: 1;
   right: 30px;
   width: 50px;
   height: 38px;

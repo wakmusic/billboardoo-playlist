@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as S from "./styled";
 
-const ListBox = ({ item, userInfo, background }) => {
+const ListBox = ({ item, userInfo, background, setDeleteModalBool }) => {
   const [deleteBool, setDeleteBool] = useState(false);
   let navigate = useNavigate();
 
@@ -24,7 +24,7 @@ const ListBox = ({ item, userInfo, background }) => {
   };
 
   const changeDeleteBool = () => {
-    setDeleteBool(!deleteBool);
+    setDeleteModalBool(true);
   };
 
   return (
