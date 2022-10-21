@@ -86,6 +86,7 @@ const MyPage = ({ userInfo, setUserInfo }) => {
           platform: data.provider,
         });
         break;
+      //애플로그인 하실거면 이쪽 수정해주시면 돼용
       case "apple":
         setUserInfo({
           name: data.display_name,

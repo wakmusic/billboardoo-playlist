@@ -31,9 +31,8 @@ const PlaylistSection = ({
           <ListBox
             setDeleteModalBool={setDeleteModalBool}
             item={item}
-            key={index}
-            userInfo={userInfo}
             background={index % 2 == 0 ? "#E4E6EC" : "#EEEFF3"}
+            key={index}
           />
         );
       })}

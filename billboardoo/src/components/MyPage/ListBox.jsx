@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as S from "./styled";
 
-const ListBox = ({ item, userInfo, background, setDeleteModalBool }) => {
-  const [deleteBool, setDeleteBool] = useState(false);
+const ListBox = ({ item, background, setDeleteModalBool }) => {
   let navigate = useNavigate();
 
+  //플레이리스트 상세보기 함수
   const movePlaylistdetail = () => {
     localStorage.setItem("playlistKey", item.key);
     navigate("/playlist");

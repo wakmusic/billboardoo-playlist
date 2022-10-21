@@ -22,7 +22,7 @@ const PlusPlaylistModal = (props) => {
 
   //플레이리스트 추가 요청 API
   const postAppendPlaylist = () => {
-    if (onePlaylist.title) {
+    if (onePlaylist.title.trim()) {
       axios.post("/api/playlist/create", onePlaylist).catch(() => {
         alert("실패하셨습니다");
       });
@@ -31,6 +31,7 @@ const PlusPlaylistModal = (props) => {
       window.location.reload();
     } else {
       alert("이름을 입력해주세요.");
+      setOnePlaylist({ ...onePlaylist, title: "" });
     }
   };
 
