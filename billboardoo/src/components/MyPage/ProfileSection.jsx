@@ -3,28 +3,9 @@ import ProfileSetting from "../../assets/svgs/ProfileSetting.svg";
 import { useNavigate } from "react-router-dom";
 import * as S from "./styled";
 
-const ProfileSection = ({ userInfo }) => {
+const ProfileSection = ({ userInfo, platformText }) => {
   const navigate = useNavigate();
-  const [platformText, setPlatformText] = useState("");
   const profileURL = `https://beta.wakmusic.xyz/static/profile/${userInfo.profile}.png`;
-
-  useEffect(() => {
-    platformSelect(userInfo.platform);
-  }, []);
-
-  const platformSelect = (platform) => {
-    switch (platform) {
-      case "google":
-        setPlatformText("구글로 로그인 중");
-        break;
-      case "naver":
-        setPlatformText("네이버로 로그인 중");
-        break;
-      case "apple":
-        setPlatformText("애플로 로그인 중");
-        break;
-    }
-  };
 
   const onClickProfileSelect = () => {
     navigate("/profile-select");

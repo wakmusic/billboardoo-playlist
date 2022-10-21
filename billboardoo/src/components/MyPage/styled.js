@@ -236,3 +236,28 @@ export const PL_DeleteButton = styled.button`
   color: #ffffff;
   border-radius: 100px;
 `;
+
+export const ModalTextLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const ModalTitle = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  color: #080f34;
+  margin: 0px;
+`;
+
+export const ModalText = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #8c95af;
+  margin: 0px;
+`;

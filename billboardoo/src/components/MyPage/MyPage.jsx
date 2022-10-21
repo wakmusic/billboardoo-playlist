@@ -11,6 +11,7 @@ import { useEffect } from "react";
 
 const MyPage = ({ userInfo, setUserInfo }) => {
   const navigate = useNavigate();
+  const [platformText, setPlatformText] = useState("");
   const [plusModalBool, setPlusModalBool] = useState(false);
   const [deleteModalBool, setDeleteModalBool] = useState(false);
   const [playlistBundle, setPlaylistBundle] = useState([]);
@@ -20,6 +21,7 @@ const MyPage = ({ userInfo, setUserInfo }) => {
     axios.get("/api/auth").then((res) => {
       userInfoSetting(res.data);
       getPlaylist(res.data.id);
+      platformSelect(res.data.provider);
       if (res.data.first) {
         navigate("/profile-select");
       }
@@ -36,6 +38,21 @@ const MyPage = ({ userInfo, setUserInfo }) => {
       .catch((res) => {
         alert("오류가 발생했습니다");
       });
+  };
+
+  //유저 로그인 플랫폼 표시 글 세팅 함수
+  const platformSelect = (platform) => {
+    switch (platform) {
+      case "google":
+        setPlatformText("구글로 로그인 중");
+        break;
+      case "naver":
+        setPlatformText("네이버로 로그인 중");
+        break;
+      case "apple":
+        setPlatformText("애플로 로그인 중");
+        break;
+    }
   };
 
   //유저 정보 가져오기 & 세팅
@@ -80,11 +97,26 @@ const MyPage = ({ userInfo, setUserInfo }) => {
       ) : (
         <></>
       )}
-      {deleteModalBool ? <Modal /> : <></>}
+      {deleteModalBool ? (
+        <Modal
+          leftText="취소"
+          leftEvent={() => {
+            setDeleteModalBool(false);
+          }}
+          rightText="삭제"
+        >
+          <S.ModalTextLayout>
+            <S.ModalTitle>삭제</S.ModalTitle>
+            <S.ModalText>정말 삭제하시겠습니까?</S.ModalText>
+          </S.ModalTextLayout>
+        </Modal>
+      ) : (
+        <></>
+      )}
       <S.TestHeader />
       <PageInTroduce pageTitle="MYPAGE" />
       <S.InfoLayout>
-        <ProfileSection userInfo={userInfo} />
+        <ProfileSection userInfo={userInfo} platformText={platformText} />
         <PlaylistSection
           setPlusModalBool={setPlusModalBool}
           playlistBundle={playlistBundle}
