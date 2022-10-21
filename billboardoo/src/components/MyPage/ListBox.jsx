@@ -5,19 +5,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as S from "./styled";
 
-const ListBox = ({ item, userInfo }) => {
+const ListBox = ({ item, userInfo, background }) => {
   const [deleteBool, setDeleteBool] = useState(false);
   let navigate = useNavigate();
 
-  //ver1
-  // const getPlaylistdetail = () => {
-  //   axios.get(`/api/playlist/detail/${item.key}`).then((res) => {
-  //     setPlaylistInfo(res.data);
-  //     localStorage.setItem("playlistKey", res.data.key);
-  //     navigate("/playlist");
-  //   });
-
-  //ver2
   const movePlaylistdetail = () => {
     localStorage.setItem("playlistKey", item.key);
     navigate("/playlist");
@@ -36,7 +27,16 @@ const ListBox = ({ item, userInfo }) => {
     setDeleteBool(!deleteBool);
   };
 
-  return <></>;
+  return (
+    <S.PL_Layout background={background}>
+      <S.PL_InfoSection onClick={movePlaylistdetail}>
+        <S.PL_Image src={item.image || DefaultPlaylist} />
+        <S.PL_Name>{item.title}</S.PL_Name>
+        <S.PL_Creator>{item.creator}</S.PL_Creator>
+      </S.PL_InfoSection>
+      <S.PL_DeleteButton onClick={changeDeleteBool}>삭제</S.PL_DeleteButton>
+    </S.PL_Layout>
+  );
 };
 
 export default ListBox;

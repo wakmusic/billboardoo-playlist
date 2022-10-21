@@ -127,16 +127,113 @@ export const PlusPlaylistButton = styled.button`
   position: absolute;
   right: 30px;
   width: 100px;
-  height: 40px;
+  height: 36px;
   background-color: #202f61;
   border: none;
   border-radius: 100px;
   gap: 3px;
   font-family: "Pretendard";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 14px;
   color: #ffffff;
 `;
 
-export const 
+export const ListInfoBox = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 600px;
+  height: 40px;
+  background-color: #dadde5;
+`;
+
+export const ListPlaylistName = styled.p`
+  position: absolute;
+  left: 100px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  color: #080f34;
+  margin: 0px;
+`;
+
+export const ListPlaylistCreator = styled.p`
+  position: absolute;
+  right: 100px;
+  width: 80px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+  color: #080f34;
+`;
+
+export const PL_Layout = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 600px;
+  height: 80px;
+  background-color: ${(props) => props.background};
+`;
+
+export const PL_InfoSection = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 520px;
+  height: 80px;
+`;
+
+export const PL_Image = styled.img`
+  position: absolute;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #080f34;
+  border-radius: 5px;
+`;
+
+export const PL_Name = styled.p`
+  position: absolute;
+  left: 100px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  color: #080f34;
+  margin: 0px;
+`;
+
+export const PL_Creator = styled.p`
+  position: absolute;
+  right: 20px;
+  width: 80px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  text-align: center;
+  color: #202f61;
+`;
+
+export const PL_DeleteButton = styled.button`
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  right: 30px;
+  width: 50px;
+  height: 38px;
+  border: none;
+  background-color: #8c95af;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff;
+  border-radius: 100px;
+`;

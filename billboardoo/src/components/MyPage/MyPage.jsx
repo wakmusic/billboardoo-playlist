@@ -83,7 +83,11 @@ const MyPage = ({ userInfo, setUserInfo }) => {
       <PageInTroduce pageTitle="MYPAGE" />
       <S.InfoLayout>
         <ProfileSection userInfo={userInfo} />
-        <PlaylistSection />
+        <PlaylistSection
+          setModalBool={setModalBool}
+          playlistBundle={playlistBundle}
+          userInfo={userInfo}
+        />
       </S.InfoLayout>
     </S.Container>
   );
