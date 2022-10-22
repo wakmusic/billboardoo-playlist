@@ -238,3 +238,38 @@ export const ListPlusTitle = styled.p`
   margin: 0px;
   margin-left: 15px;
 `;
+
+export const ModalTitle = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  color: #080f34;
+  margin: 0px;
+`;
+
+export const ModalText = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #8c95af;
+  margin: 0px;
+  margin-top: 10px;
+`;
+
+export const PlaylistLink = styled.input`
+  width: 335px;
+  height: 40px;
+  padding-left: 15px;
+  background: #f4f5f7;
+  border-radius: 10px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #202f61;
+  margin-top: 40px;
+  border: none;
+  pointer-events: none;
+`;

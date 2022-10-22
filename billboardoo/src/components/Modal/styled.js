@@ -35,6 +35,7 @@ export const MainButton = styled.button`
 
 export const ModalContentBox = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 470px;
