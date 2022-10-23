@@ -5,19 +5,23 @@ import DefaultPlaylist from "../../assets/imgs/DefaultPlaylist.png";
 import ModifyIcon from "../../assets/svgs/ModifyIcon.svg";
 import * as S from "./styled";
 
-const InfoSection = ({ playlistInfo,setModalBool }) => {
+const InfoSection = ({ playlistInfo, setModalBool }) => {
   return (
     <S.ProfileBox>
       <S.ProfileSettingIcon src={Public} />
-      <S.ProfileImg />
+      <S.ProfileImg src={playlistInfo.image || DefaultPlaylist} />
       <S.NameLayout>
-        <S.ProfileName>dsfsdf</S.ProfileName>
+        <S.ProfileName>{playlistInfo.title}</S.ProfileName>
         <S.ModifyButton src={ModifyIcon} />
       </S.NameLayout>
-      <S.LoginPlatform>dsfdsf</S.LoginPlatform>
-      <S.LogoutButton>
+      <S.LoginPlatform>{playlistInfo.creator}</S.LoginPlatform>
+      <S.LogoutButton
+        onClick={() => {
+          setModalBool(true);
+        }}
+      >
         <img src={Sharing} />
-        노래추가
+        공유하기
       </S.LogoutButton>
     </S.ProfileBox>
   );

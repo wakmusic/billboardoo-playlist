@@ -5,7 +5,9 @@ import ListPlus from "../../assets/svgs/ListPlus.svg";
 import MusicListBox from "./MusicListBox";
 import * as S from "./styled";
 
-const MusicSection = () => {
+const MusicSection = (props) => {
+  const { musicList, playlistInfo, setPlaylistInfo } = props;
+
   return (
     <S.PlaylistLayout>
       <S.TitleBox>
@@ -29,7 +31,16 @@ const MusicSection = () => {
         <S.ListPlaylistName>재생목록 이름</S.ListPlaylistName>
         <S.ListPlaylistCreator>작성자</S.ListPlaylistCreator>
       </S.ListInfoBox>
-      <MusicListBox />
+      {musicList.map((item, index) => {
+        return (
+          <MusicListBox
+            playlistInfo={playlistInfo}
+            setPlaylistInfo={setPlaylistInfo}
+            item={item}
+            key={index}
+          />
+        );
+      })}
     </S.PlaylistLayout>
   );
 };
