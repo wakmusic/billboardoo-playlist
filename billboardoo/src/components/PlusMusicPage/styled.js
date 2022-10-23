@@ -20,7 +20,7 @@ export const Container = styled.div`
 export const MainFindInputBox = styled.div`
   display: flex;
   align-items: center;
-  width: 480px;
+  width: 520px;
   height: 44px;
   background: #ffffff;
   border-radius: 6px;
@@ -29,9 +29,30 @@ export const MainFindInputBox = styled.div`
 `;
 
 export const FindInputFilter = styled.div`
-  width: 90px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100px;
   height: 44px;
-  border: 1px solid black;
+  gap: 5px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #080f34;
+  overflow: unset;
+`;
+
+export const FilterMenu = styled.div`
+  position: absolute;
+  top: 54px;
+  width: 100px;
+  height: 250px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2));
 `;
 
 export const FindInput = styled.input`

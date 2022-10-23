@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Arrow from "../../assets/svgs/Arrow";
 import FindIcon from "../../assets/svgs/FindIcon.svg";
 import MusicBox from "./MusicBox";
 import PageItroduceBox from "../PageItroduceBox/PageItroduceBox";
@@ -64,7 +65,11 @@ const PlusMusicPage = () => {
       <S.testHeader />
       <PageItroduceBox pageTitle="재생 목록 노래 추가" />
       <S.MainFindInputBox>
-        <S.FindInputFilter></S.FindInputFilter>
+        <S.FindInputFilter>
+          <S.FilterMenu></S.FilterMenu>
+          노래명
+          <Arrow ArrowPower={true} />
+        </S.FindInputFilter>
         <S.FindInput
           onKeyPress={findMusic}
           onChange={onChangeKeyword}
