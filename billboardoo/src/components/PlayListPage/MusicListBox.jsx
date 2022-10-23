@@ -3,39 +3,16 @@ import DefaultProfile from "../../assets/svgs/DefaultProfile.svg";
 import axios from "axios";
 import * as S from "./styled";
 
-const MusicListBox = ({ item, playlistInfo, setPlaylistInfo }) => {
-  const [deleteBool, setDeleteBool] = useState(false);
-
-  //플레이 리스트 내에 노래 삭제 함수
-  const deleteMusic = () => {
-    let copySonglist = playlistInfo.songlist.filter((x) => {
-      return x != item.id;
-    });
-    setPlaylistInfo({ ...playlistInfo, songlist: copySonglist });
-    axios
-      .post(`/api/playlist/edit/${playlistInfo.key}`, {
-        title: playlistInfo.title,
-        image: playlistInfo.image,
-        songlist: copySonglist,
-        public: playlistInfo.public,
-        clientId: playlistInfo.clientId,
-      })
-      .then((res) => {
-        alert("삭제에 성공했습니다");
-      });
-  };
-
-  const changeDeleteBool = () => {
-    setDeleteBool(!deleteBool);
-  };
+const MusicListBox = ({ item }) => {
+  const imageLink = `https://i.ytimg.com/vi/${item.id}/hqdefault.jpg`;
 
   return (
     <S.PL_Layout background="#E5E7EC">
       <S.PL_InfoSection>
         <S.PL_Circle />
-        <S.PL_Image src={DefaultProfile} />
-        <S.PL_Name>dsfsdf</S.PL_Name>
-        <S.PL_Creator>sdfsdf</S.PL_Creator>
+        <S.PL_Image src={imageLink || DefaultProfile} />
+        <S.PL_Name>{item.title}</S.PL_Name>
+        <S.PL_Creator>{item.artist}</S.PL_Creator>
       </S.PL_InfoSection>
       <S.PL_DeleteButton>삭제</S.PL_DeleteButton>
     </S.PL_Layout>

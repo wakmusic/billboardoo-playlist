@@ -4,6 +4,8 @@ import MusicPlus from "../../assets/svgs/MusicPlus.svg";
 import * as S from "./styled";
 
 const MusicBox = ({ item, color, playlistInfo, setPlaylistInfo }) => {
+  const imageLink = `https://i.ytimg.com/vi/${item.id}/hqdefault.jpg`;
+
   const appendMusic = () => {
     let copySonglist = [...playlistInfo.songlist];
     copySonglist.push(item.id);
@@ -24,7 +26,7 @@ const MusicBox = ({ item, color, playlistInfo, setPlaylistInfo }) => {
   return (
     <S.MusicBox color={color}>
       <S.MusicImageBack />
-      <S.MusicImage />
+      <S.MusicImage src={imageLink} />
       <S.MusicTextLayout>
         <S.MusicName>{item.title}</S.MusicName>
         <S.MusicArtist>{item.artist}</S.MusicArtist>
