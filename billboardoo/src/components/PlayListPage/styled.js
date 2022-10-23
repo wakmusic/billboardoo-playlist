@@ -134,13 +134,19 @@ export const PageTitle = styled.p`
   margin: 0px;
 `;
 
+export const ButtonLayout = styled.div`
+  position: absolute;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
 export const PlusPlaylistButton = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  right: 30px;
   width: 100px;
   height: 36px;
   background-color: #202f61;
@@ -154,6 +160,24 @@ export const PlusPlaylistButton = styled.button`
   color: #ffffff;
 `;
 
+export const PlaybackPlaylistButton = styled.button`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 36px;
+  background-color: #00f3f3;
+  border: none;
+  border-radius: 100px;
+  gap: 3px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  color: #202f61;
+`;
+
 export const ListInfoBox = styled.div`
   position: relative;
   display: flex;
@@ -165,7 +189,7 @@ export const ListInfoBox = styled.div`
 
 export const ListPlaylistName = styled.p`
   position: absolute;
-  left: 100px;
+  left: 110px;
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 500;
@@ -213,9 +237,18 @@ export const PL_Image = styled.img`
   border-radius: 5px;
 `;
 
+export const PL_Circle = styled.div`
+  position: absolute;
+  left: 55px;
+  width: 40px;
+  height: 40px;
+  background-color: #242424;
+  border-radius: 100px;
+`;
+
 export const PL_Name = styled.p`
   position: absolute;
-  left: 100px;
+  left: 110px;
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 700;

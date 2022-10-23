@@ -32,9 +32,10 @@ const MusicListBox = ({ item, playlistInfo, setPlaylistInfo }) => {
   return (
     <S.PL_Layout background="#E5E7EC">
       <S.PL_InfoSection>
+        <S.PL_Circle />
         <S.PL_Image src={DefaultProfile} />
-        <S.PL_Name></S.PL_Name>
-        <S.PL_Creator></S.PL_Creator>
+        <S.PL_Name>dsfsdf</S.PL_Name>
+        <S.PL_Creator>sdfsdf</S.PL_Creator>
       </S.PL_InfoSection>
       <S.PL_DeleteButton>삭제</S.PL_DeleteButton>
     </S.PL_Layout>

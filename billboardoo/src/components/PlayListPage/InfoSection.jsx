@@ -5,7 +5,7 @@ import DefaultPlaylist from "../../assets/imgs/DefaultPlaylist.png";
 import ModifyIcon from "../../assets/svgs/ModifyIcon.svg";
 import * as S from "./styled";
 
-const InfoSection = () => {
+const InfoSection = ({ playlistInfo,setModalBool }) => {
   return (
     <S.ProfileBox>
       <S.ProfileSettingIcon src={Public} />
@@ -17,7 +17,7 @@ const InfoSection = () => {
       <S.LoginPlatform>dsfdsf</S.LoginPlatform>
       <S.LogoutButton>
         <img src={Sharing} />
-        공유하기
+        노래추가
       </S.LogoutButton>
     </S.ProfileBox>
   );

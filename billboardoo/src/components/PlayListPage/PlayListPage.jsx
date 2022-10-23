@@ -75,7 +75,7 @@ const PlaylistPage = () => {
       <S.TestHeader />
       <PageItroduceBox pageTitle="MYPAGE" />
       <S.InfoLayout>
-        <InfoSection />
+        <InfoSection playlistInfo={playlistInfo} setModalBool={setModalBool} />
         <MusicSection />
       </S.InfoLayout>
       {/* <S.TestHeader />
