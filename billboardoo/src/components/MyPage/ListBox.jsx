@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Option from "../../assets/svgs/Option.svg";
 import DefaultPlaylist from "../../assets/imgs/DefaultPlaylist.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";

@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Modal from "../Modal/Modal";
+import PageItroduceBox from "../PageItroduceBox/PageItroduceBox";
 import InfoSection from "./InfoSection";
-import MusicListBox from "./MusicListBox";
-import ListPlus from "../../assets/svgs/ListPlus.svg";
+import MusicSection from "./MusicSection";
 import * as S from "./styled";
 
 const PlaylistPage = () => {
@@ -57,7 +57,7 @@ const PlaylistPage = () => {
   };
 
   return (
-    <S.PlaylistLayout>
+    <S.Container>
       {modalBool && (
         <Modal
           leftText="닫기"
@@ -73,6 +73,12 @@ const PlaylistPage = () => {
         </Modal>
       )}
       <S.TestHeader />
+      <PageItroduceBox pageTitle="MYPAGE" />
+      <S.InfoLayout>
+        <InfoSection />
+        <MusicSection />
+      </S.InfoLayout>
+      {/* <S.TestHeader />
       <InfoSection playlistInfo={playlistInfo} setModalBool={setModalBool} />
       <S.MusicSection>
         <S.MusicSectionTitle>노래 목록</S.MusicSectionTitle>
@@ -91,8 +97,8 @@ const PlaylistPage = () => {
             />
           );
         })}
-      </S.MusicSection>
-    </S.PlaylistLayout>
+      </S.MusicSection> */}
+    </S.Container>
   );
 };
 

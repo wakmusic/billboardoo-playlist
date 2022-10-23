@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import DefaultProfile from "../../assets/svgs/DefaultProfile.svg";
 import axios from "axios";
-import Option from "../../assets/svgs/Option.svg";
 import * as S from "./styled";
 
 const MusicListBox = ({ item, playlistInfo, setPlaylistInfo }) => {
@@ -30,22 +30,14 @@ const MusicListBox = ({ item, playlistInfo, setPlaylistInfo }) => {
   };
 
   return (
-    <S.ListBox>
-      {deleteBool && (
-        <S.ListDeleteButton onClick={deleteMusic}>삭제하기</S.ListDeleteButton>
-      )}
-      <S.ListBoxInfo>
-        <S.ListTextLayout>
-          <S.ListImg src={item.image} />
-          <S.ListTitle>{item.title}</S.ListTitle>
-          <S.ListGuideLine />
-          <S.ListText>{item.artist}</S.ListText>
-        </S.ListTextLayout>
-      </S.ListBoxInfo>
-      <S.OptionBox onClick={changeDeleteBool}>
-        <img src={Option} />
-      </S.OptionBox>
-    </S.ListBox>
+    <S.PL_Layout background="#E5E7EC">
+      <S.PL_InfoSection>
+        <S.PL_Image src={DefaultProfile} />
+        <S.PL_Name></S.PL_Name>
+        <S.PL_Creator></S.PL_Creator>
+      </S.PL_InfoSection>
+      <S.PL_DeleteButton>삭제</S.PL_DeleteButton>
+    </S.PL_Layout>
   );
 };
 

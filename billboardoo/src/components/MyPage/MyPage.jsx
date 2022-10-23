@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import PageInTroduce from "../PageItroduceBox/PageItroduceBox";
+import PageItroduceBox from "../PageItroduceBox/PageItroduceBox";
 import ProfileSection from "./ProfileSection";
 import PlaylistSection from "./PlaylistSection";
 import Modal from "../Modal/Modal";
@@ -166,7 +166,7 @@ const MyPage = ({ userInfo, setUserInfo }) => {
         <></>
       )}
       <S.TestHeader />
-      <PageInTroduce pageTitle="MYPAGE" />
+      <PageItroduceBox pageTitle="MYPAGE" />
       <S.InfoLayout>
         <ProfileSection userInfo={userInfo} platformText={platformText} />
         <PlaylistSection
