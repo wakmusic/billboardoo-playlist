@@ -262,3 +262,40 @@ export const ModalText = styled.p`
   color: #8c95af;
   margin: 0px;
 `;
+
+export const NameInput = styled.input`
+  width: 348px;
+  height: 40px;
+  left: 786px;
+  top: 402px;
+  background-color: #f4f5f7;
+  border-radius: 5px;
+  border: none;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #202f61;
+  padding-left: 15px;
+
+  ::placeholder {
+    font-family: "Spoqa Han Sans Neo";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    color: #b6b6b6;
+  }
+`;
+
+export const IntroduceText = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #8c95af;
+  margin: 0px;
+  margin-bottom: 35px;
+  margin-top: 10px;
+`;

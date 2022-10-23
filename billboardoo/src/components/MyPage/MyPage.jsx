@@ -5,13 +5,21 @@ import PageInTroduce from "../PageItroduceBox/PageItroduceBox";
 import ProfileSection from "./ProfileSection";
 import PlaylistSection from "./PlaylistSection";
 import Modal from "../Modal/Modal";
-import PlusPlaylistModal from "../PlusPlaylistModal/PlusPlaylistModal";
 import * as S from "./styled";
 import { useEffect } from "react";
 
 const MyPage = ({ userInfo, setUserInfo }) => {
   const navigate = useNavigate();
   const [platformText, setPlatformText] = useState("");
+  const [onePlaylist, setOnePlaylist] = useState({
+    title: "",
+    creator: userInfo.name,
+    platform: userInfo.platform, //로그인 유형 ex(google,naver,twitchs)
+    image: "",
+    songlist: [],
+    public: "false", //true, false
+    clientId: userInfo.id,
+  });
   const [plusModalBool, setPlusModalBool] = useState(false);
   const [deleteModalBool, setDeleteModalBool] = useState(false);
   const [playlistBundle, setPlaylistBundle] = useState([]);
@@ -50,6 +58,26 @@ const MyPage = ({ userInfo, setUserInfo }) => {
         alert("삭제에 성공했습니다");
         window.location.reload();
       });
+  };
+
+  //추가할 플레이리스트 이름 설정 함수
+  const onChangePlaylistName = (e) => {
+    setOnePlaylist({ ...onePlaylist, title: e.target.value });
+  };
+
+  //플레이리스트 추가 요청 API
+  const postAppendPlaylist = () => {
+    if (onePlaylist.title.trim()) {
+      axios.post("/api/playlist/create", onePlaylist).catch(() => {
+        alert("실패하셨습니다");
+      });
+      setPlusModalBool(false);
+      setOnePlaylist({ ...onePlaylist, title: "" });
+      window.location.reload();
+    } else {
+      alert("이름을 입력해주세요.");
+      setOnePlaylist({ ...onePlaylist, title: "" });
+    }
   };
 
   //유저 로그인 플랫폼 표시 글 세팅 함수
@@ -101,10 +129,24 @@ const MyPage = ({ userInfo, setUserInfo }) => {
   return (
     <S.Container>
       {plusModalBool && (
-        <PlusPlaylistModal
-          userInfo={userInfo}
-          setPlusModalBool={setPlusModalBool}
-        />
+        <Modal
+          leftText="취소"
+          leftEvent={() => {
+            setPlusModalBool(false);
+          }}
+          rightText="생성"
+          rightEvent={postAppendPlaylist}
+        >
+          <S.ModalTitle>재생 목록 생성</S.ModalTitle>
+          <S.IntroduceText>
+            새로운 재생목록의 이름을 입력해주세요
+          </S.IntroduceText>
+          <S.NameInput
+            onChange={onChangePlaylistName}
+            value={onePlaylist.title}
+            placeholder="이름을 입력해주세요"
+          />
+        </Modal>
       )}
       {deleteModalBool ? (
         <Modal
