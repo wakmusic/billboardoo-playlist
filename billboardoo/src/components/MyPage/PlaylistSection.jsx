@@ -5,7 +5,6 @@ import * as S from "./styled";
 
 const PlaylistSection = ({
   playlistBundle,
-  userInfo,
   setPlusModalBool,
   setDeleteModalBool,
 }) => {

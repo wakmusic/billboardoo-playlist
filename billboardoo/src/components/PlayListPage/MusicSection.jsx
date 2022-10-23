@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import CrossPlay from "../../assets/svgs/PlaylistCrossPlay.svg";
 import Play from "../../assets/svgs/PlaylistPlay.svg";
 import ListPlus from "../../assets/svgs/ListPlus.svg";
@@ -6,7 +7,13 @@ import MusicListBox from "./MusicListBox";
 import * as S from "./styled";
 
 const MusicSection = (props) => {
-  const { musicList, playlistInfo, setPlaylistInfo } = props;
+  const { musicList, playlistInfo, setPlaylistInfo, setDeleteModalBool } =
+    props;
+  const navigate = useNavigate();
+
+  const movePlusMusicPage = () => {
+    navigate("/plus-music");
+  };
 
   return (
     <S.PlaylistLayout>
@@ -21,7 +28,7 @@ const MusicSection = (props) => {
             <img src={CrossPlay} />
             랜덤 재생
           </S.PlaybackPlaylistButton>
-          <S.PlusPlaylistButton>
+          <S.PlusPlaylistButton onClick={movePlusMusicPage}>
             <img src={ListPlus} />
             노래 추가
           </S.PlusPlaylistButton>
@@ -34,6 +41,7 @@ const MusicSection = (props) => {
       {musicList.map((item, index) => {
         return (
           <MusicListBox
+            setDeleteModalBool={setDeleteModalBool}
             playlistInfo={playlistInfo}
             setPlaylistInfo={setPlaylistInfo}
             item={item}
