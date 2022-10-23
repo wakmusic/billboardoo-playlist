@@ -5,14 +5,23 @@ import DefaultPlaylist from "../../assets/imgs/DefaultPlaylist.png";
 import ModifyIcon from "../../assets/svgs/ModifyIcon.svg";
 import * as S from "./styled";
 
-const InfoSection = ({ playlistInfo, setCopyModalBool }) => {
+const InfoSection = ({
+  playlistInfo,
+  setCopyModalBool,
+  setModifyModalBool,
+}) => {
   return (
     <S.ProfileBox>
       <S.ProfileSettingIcon src={Public} />
       <S.ProfileImg src={playlistInfo.image || DefaultPlaylist} />
       <S.NameLayout>
         <S.ProfileName>{playlistInfo.title}</S.ProfileName>
-        <S.ModifyButton src={ModifyIcon} />
+        <S.ModifyButton
+          src={ModifyIcon}
+          onClick={() => {
+            setModifyModalBool(true);
+          }}
+        />
       </S.NameLayout>
       <S.LoginPlatform>{playlistInfo.creator}</S.LoginPlatform>
       <S.LogoutButton

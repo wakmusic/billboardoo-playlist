@@ -10,6 +10,7 @@ const PlaylistPage = () => {
   const linkInputRef = useRef();
   const playlistKey = localStorage.getItem("playlistKey");
   const [copyModalBool, setCopyModalBool] = useState(false);
+  const [modifyModalBool, setModifyModalBool] = useState(false);
   const [deleteModalBool, setDeleteModalBool] = useState(false);
   const [playlistInfo, setPlaylistInfo] = useState({});
   const [musicList, setMusicList] = useState([]);
@@ -45,6 +46,19 @@ const PlaylistPage = () => {
     }
   };
 
+  //playlistInfo title 변경 함수
+  const playlistTitleChange = (e) => {
+    setPlaylistInfo({ ...playlistInfo, title: e.target.value });
+  };
+
+  const changePlaylistTitle = () => {
+    axios
+      .post(`/api/playlist/edit/${playlistInfo.key}`, playlistInfo)
+      .then((res) => {
+        setModifyModalBool(false);
+      });
+  };
+
   //플레이 리스트 내에 노래 삭제 함수
   const deleteMusic = () => {
     const musicId = localStorage.getItem("musicId");
@@ -54,11 +68,8 @@ const PlaylistPage = () => {
     setPlaylistInfo({ ...playlistInfo, songlist: copySonglist });
     axios
       .post(`/api/playlist/edit/${playlistInfo.key}`, {
-        title: playlistInfo.title,
-        image: playlistInfo.image,
+        ...playlistInfo,
         songlist: copySonglist,
-        public: playlistInfo.public,
-        clientId: playlistInfo.clientId,
       })
       .then((res) => {
         alert("삭제에 성공했습니다");
@@ -76,6 +87,26 @@ const PlaylistPage = () => {
 
   return (
     <S.Container>
+      {modifyModalBool && (
+        <Modal
+          leftText="취소"
+          leftEvent={() => {
+            setModifyModalBool(false);
+          }}
+          rightText="변경"
+          rightEvent={changePlaylistTitle}
+        >
+          <S.ModalTitle>재생 목록 이름 수정</S.ModalTitle>
+          <S.IntroduceText>
+            수정할 재생목록의 이름을 입력해주세요
+          </S.IntroduceText>
+          <S.NameInput
+            onChange={playlistTitleChange}
+            value={playlistInfo.title}
+            placeholder="이름을 입력해주세요"
+          />
+        </Modal>
+      )}
       {copyModalBool && (
         <Modal
           leftText="닫기"
@@ -108,6 +139,7 @@ const PlaylistPage = () => {
       <PageItroduceBox pageTitle="MYPAGE" />
       <S.InfoLayout>
         <InfoSection
+          setModifyModalBool={setModifyModalBool}
           playlistInfo={playlistInfo}
           setCopyModalBool={setCopyModalBool}
         />
