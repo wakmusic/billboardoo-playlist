@@ -16,12 +16,15 @@ const InfoSection = (props) => {
   } = props;
 
   const changePublic = () => {
-    setPlaylistInfo({ ...playlistInfo, public: !playlistInfo.public });
+    setPlaylistInfo({
+      ...playlistInfo,
+      public: !playlistInfo.public,
+    });
     axios.post(`/api/playlist/edit/${playlistInfo.key}`, {
       title: playlistInfo.title,
       image: playlistInfo.image,
       songlist: playlistInfo.songlist,
-      public: (!playlistInfo.public).toString(),
+      public: !playlistInfo.public,
       clientId: playlistInfo.clientId,
     });
   };

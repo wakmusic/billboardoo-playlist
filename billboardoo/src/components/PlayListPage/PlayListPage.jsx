@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Modal from "../Modal/Modal";
 import PageItroduceBox from "../PageItroduceBox/PageItroduceBox";
@@ -9,6 +9,7 @@ import * as S from "./styled";
 
 const PlaylistPage = () => {
   const linkInputRef = useRef();
+  const navigate = useNavigate();
   const params = useParams();
   const playlistKey = localStorage.getItem("playlistKey") || params.id;
   const [playlistCertified, setPlaylistCertified] = useState(true);
@@ -30,6 +31,9 @@ const PlaylistPage = () => {
       localStorage.setItem("playlistKey", res.data.key);
       getMusicList(res.data.songlist);
       if (res.data.clientId != localStorage.getItem("clientId")) {
+        if (!res.data.public) {
+          navigate("/");
+        }
         setPlaylistCertified(false);
       }
     });

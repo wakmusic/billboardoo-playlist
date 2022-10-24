@@ -14,6 +14,7 @@ const ProfileSection = ({ userInfo, platformText }) => {
   const onClickLogout = () => {
     window.location.href = "/";
     localStorage.removeItem("playlistKey");
+    localStorage.removeItem("clientId");
   };
 
   return (

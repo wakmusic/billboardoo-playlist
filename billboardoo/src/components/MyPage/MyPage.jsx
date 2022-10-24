@@ -67,7 +67,7 @@ const MyPage = ({ userInfo, setUserInfo }) => {
           platform: userInfo.platform, //로그인 유형 ex(google,naver,twitchs)
           image: "",
           songlist: [],
-          public: "false", //true, false
+          public: false, //true, false
           clientId: userInfo.id,
         })
         .catch(() => {
@@ -176,7 +176,6 @@ const MyPage = ({ userInfo, setUserInfo }) => {
           setPlusModalBool={setPlusModalBool}
           playlistBundle={playlistBundle}
           setDeleteModalBool={setDeleteModalBool}
-          userInfo={userInfo}
         />
       </S.InfoLayout>
     </S.Container>
