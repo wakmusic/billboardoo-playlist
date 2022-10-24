@@ -11,6 +11,7 @@ const PlaylistPage = () => {
   const linkInputRef = useRef();
   const params = useParams();
   const playlistKey = localStorage.getItem("playlistKey") || params.id;
+  const [playlistCertified, setPlaylistCertified] = useState(true);
   const [copyModalBool, setCopyModalBool] = useState(false);
   const [modifyModalBool, setModifyModalBool] = useState(false);
   const [deleteModalBool, setDeleteModalBool] = useState(false);
@@ -28,6 +29,9 @@ const PlaylistPage = () => {
       setPlaylistInfo(res.data);
       localStorage.setItem("playlistKey", res.data.key);
       getMusicList(res.data.songlist);
+      if (res.data.clientId != localStorage.getItem("clientId")) {
+        setPlaylistCertified(false);
+      }
     });
   };
 
@@ -145,12 +149,14 @@ const PlaylistPage = () => {
       <PageItroduceBox pageTitle="MYPAGE" />
       <S.InfoLayout>
         <InfoSection
+          playlistCertified={playlistCertified}
           setPlaylistInfo={setPlaylistInfo}
           setModifyModalBool={setModifyModalBool}
           playlistInfo={playlistInfo}
           setCopyModalBool={setCopyModalBool}
         />
         <MusicSection
+          playlistCertified={playlistCertified}
           setDeleteModalBool={setDeleteModalBool}
           playlistInfo={playlistInfo}
           setPlaylistInfo={setPlaylistInfo}

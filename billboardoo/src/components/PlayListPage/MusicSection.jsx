@@ -5,14 +5,30 @@ import Play from "../../assets/svgs/PlaylistPlay.svg";
 import ListPlus from "../../assets/svgs/ListPlus.svg";
 import MusicListBox from "./MusicListBox";
 import * as S from "./styled";
+import axios from "axios";
 
 const MusicSection = (props) => {
-  const { musicList, playlistInfo, setPlaylistInfo, setDeleteModalBool } =
-    props;
+  const {
+    musicList,
+    playlistInfo,
+    setPlaylistInfo,
+    setDeleteModalBool,
+    playlistCertified,
+  } = props;
   const navigate = useNavigate();
 
   const movePlusMusicPage = () => {
     navigate("/plus-music");
+  };
+
+  const plusPlaylist = () => {
+    axios
+      .post(`/api/playlist/remove/${playlistInfo.key}`, {
+        clientId: localStorage.getItem("clientId"),
+      })
+      .then((res) => {
+        alert("플레이리스트 추가하였습니다");
+      });
   };
 
   return (
@@ -28,9 +44,11 @@ const MusicSection = (props) => {
             <img src={CrossPlay} />
             랜덤 재생
           </S.PlaybackPlaylistButton>
-          <S.PlusPlaylistButton onClick={movePlusMusicPage}>
+          <S.PlusPlaylistButton
+            onClick={playlistCertified ? movePlusMusicPage : plusPlaylist}
+          >
             <img src={ListPlus} />
-            노래 추가
+            {playlistCertified ? <>노래 추가</> : <>플레이리스트 추가</>}
           </S.PlusPlaylistButton>
         </S.ButtonLayout>
       </S.TitleBox>
