@@ -8,7 +8,24 @@ import * as S from "./styled";
 
 const PlusMusicPage = () => {
   const categoryRef = useRef();
-  const findCategory = ["노래명", "아티스트", "조교명"];
+  const findCategory = [
+    {
+      name: "노래명",
+      category: "title",
+    },
+    {
+      name: "아티스트",
+      category: "artist",
+    },
+    {
+      name: "조교명",
+      category: "remix",
+    },
+  ];
+  const [menuValue, setMenuValue] = useState({
+    name: "노래명",
+    category: "title",
+  });
   const [findMusicParams, setFindMusicParams] = useState({
     type: "title",
     sort: "popular",
@@ -40,6 +57,7 @@ const PlusMusicPage = () => {
   const onChangeKeyword = (e) => {
     const { value } = e.target;
     setFindMusicParams({ ...findMusicParams, keyword: value });
+    console.log(findMusicParams);
   };
 
   //음악 검색 함수
@@ -68,6 +86,15 @@ const PlusMusicPage = () => {
       });
   };
 
+  const handleOnChangeSelectValue = (e) => {
+    const { name } = e.target;
+    setMenuValue(findCategory[name]);
+    setFindMusicParams({
+      ...findMusicParams,
+      type: findCategory[name].category,
+    });
+  };
+
   return (
     <S.Container>
       <S.testHeader />
@@ -77,11 +104,19 @@ const PlusMusicPage = () => {
           {menuBool && (
             <S.FilterMenu>
               {findCategory.map((item, index) => {
-                return <S.Menu key={index}>{item}</S.Menu>;
+                return (
+                  <S.Menu
+                    name={index}
+                    onClick={handleOnChangeSelectValue}
+                    key={index}
+                  >
+                    {item.name}
+                  </S.Menu>
+                );
               })}
             </S.FilterMenu>
           )}
-          <div ref={categoryRef}>노래명</div>
+          <div ref={categoryRef}>{menuValue.name}</div>
           <Arrow ArrowPower={true} />
         </S.FindInputFilter>
         <S.FindInput
