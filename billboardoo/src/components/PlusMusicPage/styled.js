@@ -24,7 +24,6 @@ export const MainFindInputBox = styled.div`
   height: 44px;
   background: #ffffff;
   border-radius: 6px;
-  overflow: hidden;
   margin-top: 40px;
 `;
 
@@ -50,10 +49,28 @@ export const FilterMenu = styled.div`
   position: absolute;
   top: 54px;
   width: 100px;
-  height: 250px;
   background-color: #ffffff;
   border-radius: 5px;
+  overflow: hidden;
   filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2));
+`;
+
+export const Menu = styled.button`
+  transition: all 0.2s;
+  cursor: pointer;
+  width: 100px;
+  height: 42px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #080f34;
+  background-color: #ffffff;
+  border: none;
+
+  &:hover {
+    background-color: #e3e5eb;
+  }
 `;
 
 export const FindInput = styled.input`
@@ -67,6 +84,7 @@ export const FindInput = styled.input`
   font-weight: 500;
   font-size: 18px;
   line-height: 21px;
+  padding: 0px;
   color: #202f61;
 `;
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Arrow from "../../assets/svgs/Arrow";
 import FindIcon from "../../assets/svgs/FindIcon.svg";
@@ -7,12 +7,15 @@ import PageItroduceBox from "../PageItroduceBox/PageItroduceBox";
 import * as S from "./styled";
 
 const PlusMusicPage = () => {
+  const categoryRef = useRef();
+  const findCategory = ["노래명", "아티스트", "조교명"];
   const [findMusicParams, setFindMusicParams] = useState({
     type: "title",
     sort: "popular",
     keyword: "",
   });
   const [playlistInfo, setPlaylistInfo] = useState({});
+  const [menuBool, setMenuBool] = useState(false);
   const [musicList, setMusicList] = useState([]);
 
   useEffect(() => {
@@ -20,12 +23,17 @@ const PlusMusicPage = () => {
     getPlaylistdetail();
   }, []);
 
+  //플레이리스트 정보 가져오기
   const getPlaylistdetail = () => {
     const playlistKey = localStorage.getItem("playlistKey");
     axios.get(`/api/playlist/detail/${playlistKey}`).then((res) => {
       setPlaylistInfo(res.data);
       localStorage.setItem("playlistKey", res.data.key);
     });
+  };
+
+  const changeMenuBool = () => {
+    setMenuBool(!menuBool);
   };
 
   //검색 키워드 변경 함수
@@ -65,9 +73,15 @@ const PlusMusicPage = () => {
       <S.testHeader />
       <PageItroduceBox pageTitle="재생 목록 노래 추가" />
       <S.MainFindInputBox>
-        <S.FindInputFilter>
-          <S.FilterMenu></S.FilterMenu>
-          노래명
+        <S.FindInputFilter onClick={changeMenuBool}>
+          {menuBool && (
+            <S.FilterMenu>
+              {findCategory.map((item, index) => {
+                return <S.Menu key={index}>{item}</S.Menu>;
+              })}
+            </S.FilterMenu>
+          )}
+          <div ref={categoryRef}>노래명</div>
           <Arrow ArrowPower={true} />
         </S.FindInputFilter>
         <S.FindInput
