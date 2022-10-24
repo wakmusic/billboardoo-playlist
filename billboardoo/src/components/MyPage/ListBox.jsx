@@ -10,7 +10,7 @@ const ListBox = ({ item, background, setDeleteModalBool }) => {
   //플레이리스트 상세보기 함수
   const movePlaylistdetail = () => {
     localStorage.setItem("playlistKey", item.key);
-    navigate("/playlist");
+    navigate(`/playlist/${item.key}`);
   };
 
   const changeDeleteBool = () => {

@@ -308,7 +308,7 @@ export const PlaylistLink = styled.div`
   cursor: pointer;
   overflow: hidden;
   width: 335px;
-  height: 40px;
+  height: 44px;
   padding-left: 15px;
   background: #f4f5f7;
   border-radius: 10px;

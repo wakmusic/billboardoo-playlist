@@ -18,7 +18,7 @@ const InfoSection = ({
       title: playlistInfo.title,
       image: playlistInfo.image,
       songlist: playlistInfo.songlist,
-      public: !playlistInfo.public,
+      public: (!playlistInfo.public).toString(),
       clientId: playlistInfo.clientId,
     });
   };

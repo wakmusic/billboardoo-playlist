@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import Modal from "../Modal/Modal";
 import PageItroduceBox from "../PageItroduceBox/PageItroduceBox";
@@ -8,7 +9,8 @@ import * as S from "./styled";
 
 const PlaylistPage = () => {
   const linkInputRef = useRef();
-  const playlistKey = localStorage.getItem("playlistKey");
+  const params = useParams();
+  const playlistKey = localStorage.getItem("playlistKey") || params.id;
   const [copyModalBool, setCopyModalBool] = useState(false);
   const [modifyModalBool, setModifyModalBool] = useState(false);
   const [deleteModalBool, setDeleteModalBool] = useState(false);

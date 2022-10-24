@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/playlist" element={<PlaylistPage />} />
+          <Route path="/playlist/:id" element={<PlaylistPage />} />
           <Route path="/plus-music" element={<PlusMusicPage />} />
           <Route
             path="/mypage"
