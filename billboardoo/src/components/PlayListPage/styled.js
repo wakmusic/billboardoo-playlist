@@ -96,13 +96,11 @@ export const LogoutButton = styled.button`
   color: #8c95af;
 `;
 
-export const ProfileSettingIcon = styled.img`
+export const ProfileSettingIcon = styled.div`
   cursor: pointer;
   position: absolute;
   top: 15px;
   right: 15px;
-  width: 30px;
-  height: 30px;
 `;
 
 export const PlaylistLayout = styled.div`
@@ -304,7 +302,11 @@ export const ModalText = styled.p`
   margin-top: 10px;
 `;
 
-export const PlaylistLink = styled.input`
+export const PlaylistLink = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
   width: 335px;
   height: 40px;
   padding-left: 15px;
@@ -317,7 +319,11 @@ export const PlaylistLink = styled.input`
   color: #202f61;
   margin-top: 40px;
   border: none;
-  pointer-events: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
 `;
 
 export const NameInput = styled.input`

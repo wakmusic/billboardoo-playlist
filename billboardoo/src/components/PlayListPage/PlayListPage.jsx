@@ -65,11 +65,13 @@ const PlaylistPage = () => {
     let copySonglist = playlistInfo.songlist.filter((x) => {
       return x != musicId;
     });
-    setPlaylistInfo({ ...playlistInfo, songlist: copySonglist });
     axios
       .post(`/api/playlist/edit/${playlistInfo.key}`, {
-        ...playlistInfo,
+        title: playlistInfo.title,
+        image: playlistInfo.image,
         songlist: copySonglist,
+        public: playlistInfo.public,
+        clientId: playlistInfo.clientId,
       })
       .then((res) => {
         alert("삭제에 성공했습니다");
@@ -119,7 +121,9 @@ const PlaylistPage = () => {
         >
           <S.ModalTitle>플레이리스트 공유</S.ModalTitle>
           <S.ModalText>나만의 플레이리스트를 공유해보세요</S.ModalText>
-          <S.PlaylistLink ref={linkInputRef} value={listLink} />
+          <S.PlaylistLink onClick={onCopyLink} ref={linkInputRef}>
+            {listLink}
+          </S.PlaylistLink>
         </Modal>
       )}
       {deleteModalBool && (
@@ -139,6 +143,7 @@ const PlaylistPage = () => {
       <PageItroduceBox pageTitle="MYPAGE" />
       <S.InfoLayout>
         <InfoSection
+          setPlaylistInfo={setPlaylistInfo}
           setModifyModalBool={setModifyModalBool}
           playlistInfo={playlistInfo}
           setCopyModalBool={setCopyModalBool}

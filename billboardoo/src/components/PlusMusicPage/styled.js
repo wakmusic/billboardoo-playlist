@@ -30,6 +30,7 @@ export const MainFindInputBox = styled.div`
 
 export const FindInputFilter = styled.div`
   position: relative;
+  z-index: 1;
   cursor: pointer;
   display: flex;
   justify-content: center;
